@@ -1,0 +1,236 @@
+/* Reset and base styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.signature-section {
+  position: relative;
+  background-color: #ECE6DB;
+  width: 100%;
+  height: 774px;
+  overflow: hidden;
+}
+
+/* Layout container */
+.container {
+  margin: 0 90px;
+  position: relative;
+}
+
+/* Overlay gradient */
+.bottom-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 155px;
+  background: linear-gradient(to top, rgba(71, 50, 40, 1) 0%, rgba(59, 47, 47, 0) 100%);
+  z-index: 2;
+}
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* align top of logo and links by default */
+  position: relative;
+}
+
+/* Logo-specific spacing */
+.logo-container {
+  padding-top: 22px; /* adjust independently */
+}
+
+/* Nav-links-specific spacing */
+.links-container {
+  padding-top: 53px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 70px;
+  align-items: center;
+}
+
+.nav-links a {
+  position: relative; /* needed for the pseudo-element */
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: #2E2E2E;
+  text-decoration: none;
+  transition: color 0.3s ease; /* smooth color change */
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px; /* adjust distance from text */
+  width: 0;
+  height: 2px; /* thickness of underline */
+  background-color: #C3A358; /* same color as text */
+  transition: width 0.3s ease; /* smooth underline animation */
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: #473228;
+}
+
+/* NAV DIVIDER LINE WITH DIAMONDS */
+.nav-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+  position: relative;
+}
+
+.nav-divider .line {
+  flex: 1;
+  height: 1.5px;
+  background-color: #2E2E2E;
+  position: relative;
+  z-index: 0;
+}
+
+.nav-divider .diamond {
+  width: 10px;
+  height: 10px;
+  background-color: #2E2E2E;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.nav-divider .left {
+  margin-right: -5px; /* closes the gap */
+}
+
+.nav-divider .right {
+  margin-left: -5px; /* closes the gap */
+}
+
+/* SIGNATURE CONTENT (3 COLUMNS) */
+.signature-content {
+  display: grid;
+  grid-template-columns: 179px 412px 500px;
+  column-gap: 50px;
+  align-items: start;
+  padding-top: 60px; 
+  margin-left: 81px;
+  position: relative;
+}
+
+/* Circle, main image, details stay the same as before */
+.main-img, .details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* centers the stack vertically in its column */
+  gap: 20px; /* adds clean, consistent spacing between circles */
+  padding-top: 135px;
+  position: relative;
+  z-index: 1;
+}
+
+.circle {
+  width: 179px;
+  height: 179px;
+  border: 1.5px solid #2E2E2E;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle img {
+  width: 100px;
+  height: 100px;
+}
+
+/* Main dish column */
+.main-img img {
+  width: 412px;
+  height: 412px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Details column */
+.details {
+  position: relative;            /* needed for absolute-positioned buttons */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;   /* aligns all items to top */
+  align-items: flex-start;       /* left-aligns all items */
+  padding-top: 80px;             /* space from top */
+  gap: 16px;                      /* default vertical spacing between elements */
+}
+
+.details h2 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.details .desc {
+  font-family: 'Lato', sans-serif;
+  font-style: italic;
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+.details .price {
+  font-family: 'Lato', sans-serif;
+  font-style: italic;
+  font-size: 20px;
+}
+
+.details-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;  
+  gap: 20px;
+  position: absolute;    
+  right: 0;              
+  bottom: 200px;
+  z-index: 5;            
+}
+
+.details-buttons .outline-btn {
+  background-color: #F9F6F1;
+  border: 1.5px solid #2E2E2E;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 0;
+  font-family: 'Lato', sans-serif;
+  font-style: italic;
+  color: #2E2E2E;
+  font-size: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.details-buttons .outline-btn:hover {
+  background-color: #E8E2D7;
+  border: 1.5px solid #66302E;
+  color: #66302E;
+  font-weight: bold;
+}
