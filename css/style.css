@@ -680,7 +680,7 @@ html, body {
 
 .event-line {
   stroke: #2E2E2E;
-  stroke-width: 3;
+  stroke-width: 1.5;
 }
 
 .event-diamond {
@@ -772,4 +772,183 @@ html, body {
   flex: 0 0 45px;   /* fixed width */
   height: 100%;     /* matches scroll container height */
   background-color: #ECE6DB; /* same as events-section */
+}
+
+/* Social Media Section */
+.socials-section {
+  background-color: #F9F6F1;
+  height: 680px;
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+
+.socials-container {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+
+/* Row 1: Title */
+.socials-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: bold;
+    color: #2E2E2E;
+    margin: 0;
+    text-align: center;
+}
+
+/* Row 2: Post Cards with navigation */
+.socials-posts-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+}
+
+.socials-posts {
+  display: flex;
+  gap: 75px; /* smaller consistent gap between cards */
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  flex: 1;
+  justify-content: flex-start; /* align to left */
+  padding: 0; /* remove any side spacing */
+  scrollbar-width: none; /* hide scrollbar (Firefox) */
+}
+
+.socials-posts::-webkit-scrollbar {
+  display: none; /* hide scrollbar (Chrome/Safari) */
+}
+
+.social-post-card {
+  flex: 0 0 255px; /* fixed width per card */
+  height: 452px;
+  background-color: #ECE6DB;
+}
+
+.social-post-card:first-child {
+  margin-left: 0; /* flush left */
+}
+
+.social-post-card:last-child {
+  margin-right: 0; /* flush right */
+}
+
+.social-post-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Navigation Buttons (now overlapping) */
+.scroll-btn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: #92A079;
+    color: #F9F6F1;
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; /* overlaps posts */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2; /* ensures they stay above the cards */
+    transition: background-color 0.3s;
+}
+
+/* Common shaft for all buttons */
+.scroll-btn::before {
+    content: '';
+    position: absolute;
+    width: 22px;      /* length of horizontal shaft */
+    height: 3.5px;    /* thickness */
+    background-color: #F9F6F1;
+}
+
+/* Top diagonal of arrowhead */
+.scroll-btn::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 3.5px;
+    background-color: #F9F6F1;
+    transform-origin: right center; /* rotate from the end to meet shaft */
+}
+
+/* Bottom diagonal (using inner span) */
+.scroll-btn span {
+    display: block;
+    width: 10px;
+    height: 3.5px;
+    background-color: #F9F6F1;
+    position: absolute;
+    transform-origin: right center;
+}
+
+/* Right button */
+.right-btn::before {
+    transform: rotate(0deg);
+}
+.right-btn::after {
+    transform: rotate(45deg);
+    right: 15px; top: 23.5px;
+}
+.right-btn span {
+    transform: rotate(-45deg);
+    right: 15px; top: 23px;
+}
+
+/* Left button (mirror) */
+.left-btn::before {
+    transform: rotate(180deg);
+}
+.left-btn::after {
+    transform: rotate(135deg);
+    left: 4.5px; top: 23.5px;
+}
+.left-btn span {
+    transform: rotate(-135deg);
+    left: 4.5px; top: 23px;
+}
+
+/* Hover */
+.scroll-btn:hover {
+    background-color: #66302E;
+}
+.scroll-btn:hover::before,
+.scroll-btn:hover::after,
+.scroll-btn:hover span {
+    background-color: #ECE6DB;
+}
+
+
+.left-btn {
+    left: 2720px; /* distance from left edge of screen */
+}
+
+.right-btn {
+    right: 2720px; /* distance from right edge of screen */
+}
+
+/* Row 3: Social Icons */
+.socials-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.socials-icons img {
+    width: 50px; /* same width for all */
+    height: auto;
 }

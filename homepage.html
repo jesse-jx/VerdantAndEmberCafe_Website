@@ -256,7 +256,7 @@
                 <!-- Row 3: Event Name + Icon -->
                 <div class="event-info">
                     <div class="event-name">
-                        <h3>Cofee Soap Making</h3>
+                        <h3>Coffee Soap Making</h3>
                     </div>
                     <button class="event-plus-btn"></button>
                 </div>
@@ -312,6 +312,43 @@
                 </div>
             </div>
             <div class="scroll-spacer"></div>
+        </div>
+    </section>
+
+    <!-- Socials Section -->
+    <section class="socials-section">
+        <div class="socials-container">
+
+            <!-- Row 1: Title -->
+            <div class="socials-title">
+                <h2>From Our Valued Customers</h2>
+            </div>
+
+            <!-- Row 2: Post Cards + Navigation -->
+            <div class="socials-posts-wrapper">
+                <button class="scroll-btn left-btn"><span></span></button>
+
+                <div class="socials-posts">
+                    <div class="social-post-card"><img src="css/imgs/post1.jpg" alt="Post 1"></div>
+                    <div class="social-post-card"><img src="css/imgs/post2.jpg" alt="Post 2"></div>
+                    <div class="social-post-card"><img src="css/imgs/post3.jpg" alt="Post 3"></div>
+                    <div class="social-post-card"><img src="css/imgs/post4.jpg" alt="Post 4"></div>
+                    <div class="social-post-card"><img src="css/imgs/post5.jpg" alt="Post 5"></div>
+                    <div class="social-post-card"><img src="css/imgs/post6.jpg" alt="Post 6"></div>
+                    <div class="social-post-card"><img src="css/imgs/post7.jpg" alt="Post 7"></div>
+                </div>
+
+                <button class="scroll-btn right-btn"><span></span></button>
+            </div>
+
+            <!-- Row 3: Social Icons -->
+            <div class="socials-icons">
+                <img src="css/imgs/icon1.svg" alt="Icon 1">
+                <img src="css/imgs/icon2.svg" alt="Icon 2">
+                <img src="css/imgs/icon3.svg" alt="Icon 3">
+                <img src="css/imgs/icon4.svg" alt="Icon 4">
+                <img src="css/imgs/icon5.svg" alt="Icon 5">
+            </div>
         </div>
     </section>
 
@@ -450,6 +487,87 @@
     scrollContainer.scrollLeft = scrollLeft - walk;
     });
 </script>
+
+<!-- Socials Scroll Buttons Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.querySelector('.socials-posts-wrapper');
+        const postsContainer = document.querySelector('.socials-posts');
+        const posts = Array.from(document.querySelectorAll('.social-post-card'));
+        const leftBtn = document.querySelector('.left-btn');
+        const rightBtn = document.querySelector('.right-btn');
+
+        const gap = parseInt(getComputedStyle(posts[0]).marginRight) || 75;
+        const cardWidth = posts[0].offsetWidth;
+        const step = cardWidth + gap;
+
+        // Clone posts to both ends for seamless looping
+        posts.forEach(post => {
+            const cloneStart = post.cloneNode(true);
+            const cloneEnd = post.cloneNode(true);
+            postsContainer.appendChild(cloneEnd);
+            postsContainer.insertBefore(cloneStart, postsContainer.firstChild);
+        });
+
+        const totalPosts = posts.length;
+        let index = totalPosts; // start at first real post
+
+        const wrapperCenter = container.offsetWidth / 2;
+
+        // Position container
+        const update = (instant = false) => {
+            if (instant) postsContainer.style.transition = 'none';
+            const translateX = wrapperCenter - cardWidth / 2 - index * step;
+            postsContainer.style.transform = `translateX(${translateX}px)`;
+            if (instant) postsContainer.offsetHeight; // force reflow
+            postsContainer.style.transition = 'transform 0.5s ease';
+        };
+        update(true);
+
+        // Buttons
+        rightBtn.addEventListener('click', () => { index++; update(); });
+        leftBtn.addEventListener('click', () => { index--; update(); });
+
+        // Infinite loop logic
+        postsContainer.addEventListener('transitionend', () => {
+            if (index >= totalPosts * 2) {
+                index = totalPosts;
+                update(true);
+            } else if (index < totalPosts) {
+                index = totalPosts * 2 - 1;
+                update(true);
+            }
+        });
+
+        // Drag support
+        let isDown = false, startX, startIndex;
+        postsContainer.addEventListener('mousedown', e => {
+            isDown = true;
+            startX = e.pageX;
+            startIndex = index;
+            postsContainer.style.cursor = 'grabbing';
+        });
+        window.addEventListener('mouseup', () => { isDown = false; postsContainer.style.cursor = 'grab'; });
+        window.addEventListener('mousemove', e => {
+            if (!isDown) return;
+            const walk = e.pageX - startX;
+            index = startIndex - walk / step;
+            update();
+        });
+
+        // Touch events
+        postsContainer.addEventListener('touchstart', e => { isDown = true; startX = e.touches[0].pageX; startIndex = index; });
+        window.addEventListener('touchend', () => { isDown = false; });
+        window.addEventListener('touchmove', e => {
+            if (!isDown) return;
+            const walk = e.touches[0].pageX - startX;
+            index = startIndex - walk / step;
+            update();
+        });
+    });
+</script>
+
+
 
 </body>
 </html>
