@@ -932,7 +932,6 @@ html, body {
     background-color: #ECE6DB;
 }
 
-
 .left-btn {
     left: 2720px; /* distance from left edge of screen */
 }
@@ -951,4 +950,95 @@ html, body {
 .socials-icons img {
     width: 50px; /* same width for all */
     height: auto;
+}
+
+/* Reservation Section */
+.reservation-section {
+    width: 100%;
+    height: 546px;
+    position: relative;
+    overflow: hidden;
+    background-color: #F9F6F1;
+}
+
+/* Video Background */
+.reservation-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* Centered SVG Path Container */
+.reservation-path-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* behind overlay content */
+}
+
+/* SVG Path */
+.reservation-path-svg {
+    width: 1128px;
+    height: 432px;
+    overflow: visible;
+}
+
+/* Path */
+.reservation-path {
+    stroke-dasharray: 2000; /* will be updated via JS */
+    stroke-dashoffset: 2000;
+}
+
+/* Diamond */
+.diamond-end-reservation rect {
+    fill: #C3A358;
+}
+
+/* Overlay Text + Button */
+.reservation-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+}
+
+/* Text Styling */
+.reservation-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: #F9F6F1;
+    letter-spacing: 3.5px;
+    text-shadow: 4px 4px 8px rgba(1, 1, 1, 0.8); /* drop shadow */
+}
+
+/* Button Styling */
+.reservation-btn {
+    padding: 15px 35px;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #F9F6F1;
+    background-color: #C3A358;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reservation-btn:hover {
+    background-color: #A88745;
 }

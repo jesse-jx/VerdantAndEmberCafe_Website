@@ -352,6 +352,41 @@
         </div>
     </section>
 
+    <!-- Reservation Section -->
+    <section class="reservation-section">
+        <div class="reservation-container">
+
+            <!-- Background Video -->
+            <video autoplay muted loop playsinline class="reservation-video">
+                <source src="css/vids/Home_CafeInteraction.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <!-- SVG Path Animation Container -->
+            <div class="reservation-path-container">
+                <svg class="reservation-path-svg" width="1128" height="432" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 432 V0 H1128 V432 H81" stroke="#C3A358" stroke-width="3" fill="none" class="reservation-path"/>
+                    <g class="diamond-end-reservation">
+                        <rect width="14" height="14"/>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Overlay Content -->
+            <div class="reservation-overlay">
+                <!-- Row 1: Text -->
+                <div class="reservation-text">
+                    <h2>Ready to create the best memories?</h2>
+                </div>
+
+                <!-- Row 2: Button -->
+                <div class="reservation-button-row">
+                    <button class="reservation-btn">Reserve My Table Now</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
 
 <!-- Pop-up Animation Script -->
@@ -567,7 +602,50 @@
     });
 </script>
 
+<!-- Reservation Path Animation Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const reservationSection = document.querySelector('.reservation-section');
+        const borderPath = document.querySelector('.reservation-path');
+        const diamond = document.querySelector('.diamond-end-reservation');
 
+        const pathLength = borderPath.getTotalLength();
+        borderPath.style.strokeDasharray = pathLength;
+        borderPath.style.strokeDashoffset = pathLength;
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    let startTime = null;
+                    const duration = 2500; // animation duration
+
+                    function animateLine(time) {
+                        if (!startTime) startTime = time;
+                        const elapsed = time - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+
+                        // Draw path
+                        borderPath.style.strokeDashoffset = pathLength * (1 - progress);
+
+                        // Move diamond along path
+                        const point = borderPath.getPointAtLength(pathLength * progress);
+                        diamond.setAttribute('transform', `translate(${point.x - 7}, ${point.y - 7}) rotate(45 7 7)`);
+
+                        if (progress < 1) requestAnimationFrame(animateLine);
+                    }
+
+                    requestAnimationFrame(animateLine);
+                } else {
+                    // Reset
+                    borderPath.style.strokeDashoffset = pathLength;
+                    diamond.setAttribute('transform', `translate(0,0) rotate(45 7 7)`);
+                }
+            });
+        }, { threshold: 0.4 });
+
+        observer.observe(reservationSection);
+    });
+</script>
 
 </body>
 </html>
