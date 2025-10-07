@@ -7,6 +7,7 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Signature Section */
 .signature-section {
   position: relative;
   background-color: #ECE6DB;
@@ -585,9 +586,9 @@ html, body {
 .events-section {
   background-color: #ECE6DB;
   width: auto;
-  height: 830px;
+  height: auto;
   padding-top: 70px;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
   padding-left: 90px;
   box-sizing: border-box;
   display: flex;
@@ -636,7 +637,8 @@ html, body {
 /* Event cards */
 .event-card {
   flex: 0 0 500px; /* fixed width cards */
-  height: 615px;
+  height: auto;
+  min-height: 630px;
   color: #2E2E2E;
 }
 
@@ -705,7 +707,7 @@ html, body {
   font-weight: bold;
   color: #2E2E2E;
   line-height: 1.2;
-  max-width: 220px; /* prevents overlap */
+  max-width: 420px; /* prevents overlap */
   word-wrap: break-word;
   margin-top: -7px; 
 }
@@ -772,6 +774,41 @@ html, body {
   flex: 0 0 45px;   /* fixed width */
   height: 100%;     /* matches scroll container height */
   background-color: #ECE6DB; /* same as events-section */
+}
+
+/* Hidden extra content under each event card */
+.event-extra-content {
+    max-height: 0;               /* hidden by default */
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    color: #2E2E2E;
+    margin-top: -20px;
+    line-height: 1.4;
+}
+
+/* Expanded state */
+.event-card.expanded .event-extra-content {
+    max-height: 200px;           /* adjust to content height */
+    opacity: 1;
+}
+
+/* Rotate plus button and keep hover color when expanded */
+.event-card.expanded .event-plus-btn {
+    transform: rotate(45deg);
+    background-color: #66302E;   /* stays hover color */
+}
+
+/* Hover color when expanded (back to normal hover) */
+.event-card.expanded .event-plus-btn:hover {
+    background-color: #92A079;  
+}
+
+/* Optional: animate plus button rotation smoothly */
+.event-plus-btn {
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 /* Social Media Section */
@@ -1041,4 +1078,138 @@ html, body {
 
 .reservation-btn:hover {
     background-color: #A88745;
+}
+
+/* Footer Section */
+.footer-section {
+  width: 100%;
+  height: auto;
+  background-color: #3B2F2F;
+  color: #F9F6F1; /* text color */
+  font-family: 'Lato', sans-serif;
+}
+
+/* Container for padding */
+.footer-container {
+  width: auto;
+  padding: 80px 40px 10px 40px; /* adjust as needed */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Row 1: 3 columns */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  height: 230px;
+  position: relative;
+  padding: 0 120px;
+  gap: 50px; /* optional spacing between columns */
+}
+
+.footer-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.footer-divider {
+  width: 1px;
+  background-color: #C3A358;
+  height: 100%;
+}
+
+/* Text styles */
+.footer-text-bold {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+  line-height: 2.2;
+}
+
+.footer-text-regular {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  line-height: 1.7;
+}
+
+/* Footer middle row */
+.footer-middle {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* center image */
+    height: 100px;
+    padding-top: 20px;
+    gap: 20px; /* space between lines and image */
+}
+
+/* Line container */
+.line-container {
+    display: flex;
+    align-items: center;
+    flex: 0 0 150px; /* fixed shorter line width */
+    position: relative;
+}
+
+/* Left line: diamond on left edge, no gap */
+.left-line .diamond {
+    width: 14px;
+    height: 14px;
+    background-color: #C3A358;
+    transform: rotate(45deg);
+    margin-right: 0; /* no gap */
+}
+
+.left-line .line {
+    height: 2px;
+    background-color: #C3A358;
+    flex: 1;
+}
+
+/* Right line: diamond on right edge, no gap */
+.right-line {
+    justify-content: flex-end;
+}
+
+.right-line .diamond {
+    width: 14px;
+    height: 14px;
+    background-color: #C3A358;
+    transform: rotate(45deg);
+    margin-left: 0; /* no gap */
+}
+
+.right-line .line {
+    height: 2px;
+    background-color: #C3A358;
+    flex: 1;
+}
+
+/* Footer image */
+.footer-middle-img {
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Row 3: Bottom info */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px 0;
+}
+
+.footer-bottom-left,
+.footer-bottom-right {
+  display: flex;
+  align-items: center;
 }
