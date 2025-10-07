@@ -234,3 +234,241 @@ html, body {
   color: #66302E;
   font-weight: bold;
 }
+
+/* Ambience Section */
+.ambience-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* make section full viewport height */
+  overflow: hidden;
+  background-color: #473228; /* fallback background */
+}
+
+.ambience-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;          /* full viewport width */
+  height: 100vh;         /* full viewport height */
+  object-fit: cover;     /* crop to fill the container */
+  transform: translate(-50%, -50%); /* center video */
+}
+
+/* Video styling */
+.ambience-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* fill container but maintain aspect ratio */
+  object-position: center;
+  display: block;
+}
+
+/* Popup container */
+.popup-container {
+  position: fixed;
+  top: 50%;
+  right: 0;               /* align to right edge */
+  transform: translateY(-50%);
+  width: 500px;
+  height: 341px;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: flex-end; /* align content to right */
+  align-items: center;       /* vertical center */
+  overflow: visible;         /* allow SVG to extend outside */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.popup-container.active {
+  opacity: 1;
+  pointer-events: auto;
+  /* optional: slight slide in */
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Popup border container */
+.popup-border-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Path styling */
+.popup-border-path {
+  stroke: #C3A358;
+  stroke-width: 3;
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  fill: none;
+}
+
+/* Diamond */
+.diamond-end rect {
+  fill: #C3A358;
+}
+
+/* Popup text container */
+.popup-content {
+  position: relative;
+  z-index: 2;
+  width: 402px;            /* fixed width */
+  height: 295px;           /* fixed height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* vertical center */
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  color: #2E2E2E;
+  background-color: #F9F6F1;
+  padding: 0 30px;          /* optional padding inside text box */
+  gap: 20px;              /* space between rows */
+}
+
+.popup-title {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    font-size: 20px; /* lower height by reducing font */
+    line-height: 16px;
+    text-align: center;
+}
+
+.popup-line {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 30px); /* fit inside popup content with padding */
+    justify-content: center; 
+    margin: 0 auto;
+}
+
+.popup-line .line {
+    flex: 1;
+    height: 2px;
+    background-color: #C3A358;
+}
+
+.popup-line .diamond {
+    width: 10px;
+    height: 10px;
+    background-color: #C3A358;
+    transform: rotate(45deg);
+}
+
+.popup-line .diamond.left { margin-right: -5px; }
+.popup-line .diamond.right { margin-left: -5px; }
+
+/* Common row styling */
+.popup-row {
+    display: flex;
+    width: calc(100% - 30px);
+    margin: 0 15px; /* horizontal margin for rows 3,4,5 */
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+/* Wrap for rows 3–5 */
+/* Rows 3–5 wrapper */
+.popup-lower-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%; /* full width of popup content */
+    align-items: center; /* horizontally center all rows */
+}
+
+/* Row 3: Persons */
+.popup-row-persons {
+    width: 80%; /* match roughly the width of datetime row */
+    display: flex;
+    justify-content: center;
+}
+
+/* Row 4: Date & Time */
+.popup-row-datetime {
+    display: flex;
+    justify-content: space-between;
+    width: 80%; /* same width as row 3 */
+    gap: 10px; 
+}
+
+/* Each dropdown fills available space */
+.popup-row-datetime .date-dropdown,
+.popup-row-datetime .time-dropdown {
+    flex: 1;
+}
+
+/* Persons dropdown same width as row 4 */
+.popup-row-persons .unified-dropdown {
+    width: 100%; 
+}
+
+/* Row 5: Button */
+.popup-row-button {
+    width: 80%; /* same width as other rows */
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Unified dropdown styling for all rows */
+.unified-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.unified-dropdown select,
+.unified-dropdown input[type="date"] {
+    width: 100%;
+    padding: 8px 12px;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    border: 1.5px solid #2E2E2E;
+    background-color: #F9F6F1;
+    appearance: none; /* remove default arrow */
+    box-sizing: border-box;
+}
+
+/* Dropdown arrow */
+.unified-dropdown .dropdown-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 12px;
+    color: #2E2E2E;
+}
+
+/* Specific widths */
+.popup-row-persons .unified-dropdown {
+    max-width: calc(50% + 50% + 10px); /* date + time + gap */
+}
+
+.popup-row-datetime .date-dropdown,
+.popup-row-datetime .time-dropdown {
+    flex: 1; /* equal width */
+}
+
+/* Button styling */
+.outline-btn {
+    background-color: #C3A358;
+    border: 1.5px solid #C3A358;
+    border-radius: 100px 100px 0 100px;
+    padding: 10px 20px;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    color: #F9F6F1;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.outline-btn:hover {
+    background-color: #F9F6F1;
+    color: #C3A358;
+    font-weight: bold;
+}

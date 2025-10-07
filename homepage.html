@@ -40,13 +40,13 @@
             <!-- main signature content -->
             <div class="signature-content"> 
                 <div class="col circles">
-                    <div class="circle"><img src="css/imgs/signature2.png" alt="Signature 2"></div>
-                    <div class="circle"><img src="css/imgs/signature3.png" alt="Signature 3"></div>
-                    <div class="circle"><img src="css/imgs/signature4.png" alt="Signature 4"></div>
+                    <div class="circle" data-index="0"><img src="css/imgs/signature2.png" alt=""></div>
+                    <div class="circle" data-index="1"><img src="css/imgs/signature3.png" alt=""></div>
+                    <div class="circle" data-index="2"><img src="css/imgs/signature4.png" alt=""></div>
                 </div>
 
                 <div class="col main-img">
-                    <img src="css/imgs/signature1.png" alt="Signature 1">
+                    <img id="mainImage" src="css/imgs/signature1.png" alt="">
                 </div>
 
                 <div class="col details">
@@ -68,8 +68,180 @@
         <div class="bottom-gradient"></div>
     </section>
 
+    <!-- Ambience Section -->
+    <section class="ambience-section">
+        <div class="ambience-container">
+            <video autoplay muted loop playsinline class="ambience-video">
+            <source src="css/vids/Home_CafeInterior.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <div class="popup-container">
+        <!-- SVG border is inside container so it is visible and not clipped -->
+        <svg class="popup-border-svg" width="472" height="341" viewBox="0 0 472 341" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M472 0 H0 V341 H415" fill="none" class="popup-border-path"/>
+            <g class="diamond-end">
+                <rect width="14" height="14" />
+            </g>
+        </svg>
+
+        <!-- Popup content -->
+        <div class="popup-content">
+            <!-- Row 1: Title -->
+            <h3 class="popup-title">Check Reservation Availability</h3>
+
+            <!-- Row 2: Line with diamonds -->
+            <div class="popup-line">
+                <span class="diamond left"></span>
+                <span class="line"></span>
+                <span class="diamond right"></span>
+            </div>
+
+            <!-- Rows 3–5 container -->
+            <div class="popup-lower-rows">
+                <!-- Row 3: Persons -->
+                <div class="popup-row popup-row-persons">
+                    <div class="unified-dropdown">
+                        <select>
+                            <option disabled selected>No. of Persons</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5+</option>
+                        </select>
+                        <span class="dropdown-icon">▼</span>
+                    </div>
+                </div>
+
+                <!-- Row 4: Date & Time -->
+                <div class="popup-row popup-row-datetime">
+                    <!-- Date dropdown -->
+                    <div class="unified-dropdown date-dropdown">
+                        <input type="date" id="reservation-date" />
+                        <span class="dropdown-icon">▼</span>
+                    </div>
+
+                    <!-- Time dropdown -->
+                    <div class="unified-dropdown time-dropdown">
+                        <select id="reservation-time" disabled>
+                            <option selected disabled>Select Time</option>
+                        </select>
+                        <span class="dropdown-icon">▼</span>
+                    </div>
+                </div>
+
+                <!-- Row 5: Button -->
+                <div class="popup-row popup-row-button">
+                    <button class="outline-btn">Check Now!</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
+
+<!-- Pop-up Animation Script -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const popup = document.querySelector('.popup-container');
+    const ambienceSection = document.querySelector('.ambience-section');
+    const borderPath = document.querySelector('.popup-border-path');
+    const diamond = document.querySelector('.diamond-end');
+
+    const pathLength = borderPath.getTotalLength();
+    borderPath.style.strokeDasharray = pathLength;
+    borderPath.style.strokeDashoffset = pathLength;
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                popup.classList.add('active');
+
+                let startTime = null;
+                const duration = 2000; // 2s animation
+
+                function animateLine(time) {
+                if (!startTime) startTime = time;
+                const elapsed = time - startTime;
+                let progress = Math.min(elapsed / duration, 1);
+
+                // update line
+                borderPath.style.strokeDashoffset = pathLength * (1 - progress);
+
+                // move diamond exactly at the path tip
+                const point = borderPath.getPointAtLength(pathLength * progress);
+                diamond.setAttribute('transform', `translate(${point.x - 7}, ${point.y - 7}) rotate(45 7 7)`);
+
+                if (progress < 1) requestAnimationFrame(animateLine);
+                }
+
+                requestAnimationFrame(animateLine);
+
+            } else {
+                popup.classList.remove('active');
+                // Wait for fade-out transition to finish
+                const fadeDuration = 800; // same as CSS transition duration
+                setTimeout(() => {
+                    borderPath.style.strokeDashoffset = pathLength;
+                    diamond.setAttribute('transform', `translate(0,0) rotate(45 7 7)`);
+                }, fadeDuration);
+            }
+        });
+    }, { threshold: 0.4 });
+
+    observer.observe(ambienceSection);
+});
+</script>
+
+<!-- Dynamic Time Dropdown Script -->
+<script>
+const dateInput = document.getElementById('reservation-date');
+const timeSelect = document.getElementById('reservation-time');
+
+const weekdayTimes = [
+  '8:00 AM','8:30 AM','9:00 AM','9:30 AM',
+  '10:00 AM','10:30 AM','11:00 AM','11:30 AM',
+  '12:00 PM','12:30 PM','1:00 PM','1:30 PM',
+  '2:00 PM','2:30 PM','3:00 PM','3:30 PM',
+  '4:00 PM'
+];
+const weekendTimes = [
+  '8:00 AM','8:30 AM','9:00 AM','9:30 AM',
+  '10:00 AM','10:30 AM','11:00 AM','11:30 AM',
+  '12:00 PM','12:30 PM','1:00 PM','1:30 PM',
+  '2:00 PM','2:30 PM','3:00 PM','3:30 PM',
+  '4:00 PM',
+  '7:00 PM','7:30 PM','8:00 PM','8:30 PM',
+  '9:00 PM', '9:30 PM'
+];
+
+dateInput.addEventListener('change', () => {
+    const dateValue = dateInput.value;
+    if (!dateValue) return;
+
+    const date = new Date(dateValue);
+    const day = date.getDay(); // 0 = Sunday, 6 = Saturday
+    const isWeekend = (day === 0 || day === 6);
+
+    // Enable time dropdown
+    timeSelect.disabled = false;
+
+    // Clear previous options
+    timeSelect.innerHTML = '<option selected disabled>Select Time</option>';
+
+    // Populate based on weekday/weekend
+    const times = isWeekend ? weekendTimes : weekdayTimes;
+    times.forEach(time => {
+        const option = document.createElement('option');
+        option.value = time;
+        option.textContent = time;
+        timeSelect.appendChild(option);
+    });
+});
+</script>
 
 </body>
 </html>
