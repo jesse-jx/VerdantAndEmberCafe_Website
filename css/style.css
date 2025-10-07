@@ -10,7 +10,7 @@ html, body {
 .signature-section {
   position: relative;
   background-color: #ECE6DB;
-  width: 100%;
+  width: auto;
   height: 774px;
   overflow: hidden;
 }
@@ -238,7 +238,7 @@ html, body {
 /* Ambience Section */
 .ambience-section {
   position: relative;
-  width: 100%;
+  width: auto;
   height: 100vh; /* make section full viewport height */
   overflow: hidden;
   background-color: #473228; /* fallback background */
@@ -476,7 +476,7 @@ html, body {
 /* Concept Section */
 .concept-section {
   background-color: #F9F6F1;
-  width: 1280px;
+  width: auto;
   height: 965px;
   margin: 0 auto;
   padding: 0 100px;
@@ -487,6 +487,7 @@ html, body {
 
 /* Main container: 2 columns */
 .concept-container {
+  background-color: #F9F6F1;
   display: flex;
   flex-direction: row;
   gap: 43px; /* gap between the 2 main columns */
@@ -578,4 +579,197 @@ html, body {
 
 .text-subcol .row-3 {
   margin-bottom: 25px;  /* Adjust spacing after restaurant info */
+}
+
+/* Events Section */
+.events-section {
+  background-color: #ECE6DB;
+  width: auto;
+  height: 830px;
+  padding-top: 70px;
+  padding-bottom: 50px;
+  padding-left: 90px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title row */
+.events-title {
+  height: 55px;
+  display: flex;
+  align-items: center;
+}
+
+.events-title h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: bold;
+  color: #2E2E2E;
+  margin: 0;
+}
+
+/* Horizontal scroll container */
+.events-scroll {
+  flex: 1;
+  display: flex;
+  overflow-x: auto;
+  gap: 70px;
+  padding-top: 20px;
+  cursor: grab; /* user feedback */
+}
+
+.events-scroll:active {
+  cursor: grabbing;
+}
+
+/* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+.events-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.events-scroll {
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Event cards */
+.event-card {
+  flex: 0 0 500px; /* fixed width cards */
+  height: 615px;
+  color: #2E2E2E;
+}
+
+/* Row 1: Image */
+.event-image img {
+  width: 100%;
+  max-height: 515px;
+  object-fit: cover;
+}
+
+/* Row 2: Date + Line */
+.event-date-line {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 16px;
+  gap: 10px;
+  position: relative;
+}
+
+.event-date {
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Line and diamond container */
+.event-line-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.event-line-svg {
+  width: 100%;
+  height: 4px;
+  overflow: visible;
+}
+
+.event-line {
+  stroke: #2E2E2E;
+  stroke-width: 3;
+}
+
+.event-diamond {
+  position: absolute;
+  right: 1px;
+  width: 10px;
+  height: 10px;
+  background-color: #2E2E2E;
+  transform: rotate(45deg);
+}
+
+/* Row 3: Event Info */
+.event-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event-name h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #2E2E2E;
+  line-height: 1.2;
+  max-width: 220px; /* prevents overlap */
+  word-wrap: break-word;
+  margin-top: -7px; 
+}
+
+.event-plus-btn {
+  width: 45px;       /* circle width */
+  height: 45px;      /* circle height (adjustable) */
+  background-color: #92A079;
+  border: none;
+  border-radius: 50%; /* circular */
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0; /* prevent shrinking in flex layouts */
+  transition: background-color 0.3s ease;
+}
+
+/* Horizontal line */
+.event-plus-btn::before,
+.event-plus-btn::after {
+  content: '';
+  position: absolute;
+  background-color: #F9F6F1;
+  border-radius: 1px;
+  transition: background-color 0.3s ease;
+}
+
+/* Horizontal line */
+.event-plus-btn::before {
+  width: 20px;       /* line length */
+  height: 3.5px;     /* line weight */
+}
+
+/* Vertical line */
+.event-plus-btn::after {
+  width: 3.5px;      /* line weight */
+  height: 20px;      /* line length */
+}
+
+/* Hover effect */
+.event-plus-btn:hover {
+  background-color: #66302E;
+}
+
+.event-plus-btn:hover::before,
+.event-plus-btn:hover::after {
+  background-color: #ECE6DB;
+}
+
+.events-scroll .event-card img,
+.events-scroll .event-card h3,
+.events-scroll .event-card p,
+.events-scroll .event-card .event-date {
+  user-select: none;      /* Prevent text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;   /* Prevent dragging images */
+}
+
+.scroll-spacer {
+  flex: 0 0 45px;   /* fixed width */
+  height: 100%;     /* matches scroll container height */
+  background-color: #ECE6DB; /* same as events-section */
 }

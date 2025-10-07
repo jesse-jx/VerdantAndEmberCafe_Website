@@ -177,105 +177,278 @@
         </div>
     </section>
 
+    <!-- Events Section-->
+    <section class="events-section">
+        <!-- Row 1: Title -->
+        <div class="events-title">
+            <h2>Happenings At Verdant & Ember</h2>
+        </div>
+
+        <!-- Row 2: Horizontal Scroll -->
+        <div class="events-scroll">
+            <div class="event-card">
+                <!-- Row 1: Image -->
+                <div class="event-image">
+                    <img src="css/imgs/Home_EventCoffeeBrewing.jpg" alt="Event Coffee Brewing Image">
+                </div>
+
+                <!-- Row 2: Date + Line -->
+                <div class="event-date-line">
+                    <span class="event-date">10 November 2025</span>
+                    <div class="event-line-container">
+                    <svg class="event-line-svg" height="4" xmlns="http://www.w3.org/2000/svg">
+                        <line class="event-line" x1="0" y1="2" x2="100%" y2="2" />
+                    </svg>
+                    <div class="event-diamond"></div>
+                    </div>
+                </div>
+
+                <!-- Row 3: Event Name + Icon -->
+                <div class="event-info">
+                    <div class="event-name">
+                        <h3>Coffee Brewing</h3>
+                    </div>
+                    <button class="event-plus-btn"></button>
+                </div>
+            </div>
+            <div class="event-card">
+                <!-- Row 1: Image -->
+                <div class="event-image">
+                    <img src="css/imgs/Home_EventMenuTasting.jpg" alt="Event Menu Tasting Image">
+                </div>
+
+                <!-- Row 2: Date + Line -->
+                <div class="event-date-line">
+                    <span class="event-date">10 November 2025</span>
+                    <div class="event-line-container">
+                    <svg class="event-line-svg" height="4" xmlns="http://www.w3.org/2000/svg">
+                        <line class="event-line" x1="0" y1="2" x2="100%" y2="2" />
+                    </svg>
+                    <div class="event-diamond"></div>
+                    </div>
+                </div>
+
+                <!-- Row 3: Event Name + Icon -->
+                <div class="event-info">
+                    <div class="event-name">
+                        <h3>Menu Tasting</h3>
+                    </div>
+                    <button class="event-plus-btn"></button>
+                </div>
+            </div>
+            <div class="event-card">
+                <!-- Row 1: Image -->
+                <div class="event-image">
+                    <img src="css/imgs/Home_EventCoffeeSoap.jpg" alt="Event Coffee Soap Image">
+                </div>
+
+                <!-- Row 2: Date + Line -->
+                <div class="event-date-line">
+                    <span class="event-date">10 November 2025</span>
+                    <div class="event-line-container">
+                    <svg class="event-line-svg" height="4" xmlns="http://www.w3.org/2000/svg">
+                        <line class="event-line" x1="0" y1="2" x2="100%" y2="2" />
+                    </svg>
+                    <div class="event-diamond"></div>
+                    </div>
+                </div>
+
+                <!-- Row 3: Event Name + Icon -->
+                <div class="event-info">
+                    <div class="event-name">
+                        <h3>Cofee Soap Making</h3>
+                    </div>
+                    <button class="event-plus-btn"></button>
+                </div>
+            </div>
+            <div class="event-card">
+                <!-- Row 1: Image -->
+                <div class="event-image">
+                    <img src="css/imgs/Home_EventArtJam.jpg" alt="Event Art Jam Image">
+                </div>
+
+                <!-- Row 2: Date + Line -->
+                <div class="event-date-line">
+                    <span class="event-date">10 November 2025</span>
+                    <div class="event-line-container">
+                    <svg class="event-line-svg" height="4" xmlns="http://www.w3.org/2000/svg">
+                        <line class="event-line" x1="0" y1="2" x2="100%" y2="2" />
+                    </svg>
+                    <div class="event-diamond"></div>
+                    </div>
+                </div>
+
+                <!-- Row 3: Event Name + Icon -->
+                <div class="event-info">
+                    <div class="event-name">
+                        <h3>Art Jam</h3>
+                    </div>
+                    <button class="event-plus-btn"></button>
+                </div>
+            </div>
+            <div class="event-card">
+                <!-- Row 1: Image -->
+                <div class="event-image">
+                    <img src="css/imgs/Home_EventBook&Breakfast.jpg" alt="Event Book & Breakfast Image">
+                </div>
+
+                <!-- Row 2: Date + Line -->
+                <div class="event-date-line">
+                    <span class="event-date">10 November 2025</span>
+                    <div class="event-line-container">
+                    <svg class="event-line-svg" height="4" xmlns="http://www.w3.org/2000/svg">
+                        <line class="event-line" x1="0" y1="2" x2="100%" y2="2" />
+                    </svg>
+                    <div class="event-diamond"></div>
+                    </div>
+                </div>
+
+                <!-- Row 3: Event Name + Icon -->
+                <div class="event-info">
+                    <div class="event-name">
+                        <h3>Book & Breakfast</h3>
+                    </div>
+                    <button class="event-plus-btn"></button>
+                </div>
+            </div>
+            <div class="scroll-spacer"></div>
+        </div>
+    </section>
+
+
 
 <!-- Pop-up Animation Script -->
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const popup = document.querySelector('.popup-container');
-    const ambienceSection = document.querySelector('.ambience-section');
-    const borderPath = document.querySelector('.popup-border-path');
-    const diamond = document.querySelector('.diamond-end');
+    document.addEventListener('DOMContentLoaded', () => {
+        const popup = document.querySelector('.popup-container');
+        const ambienceSection = document.querySelector('.ambience-section');
+        const borderPath = document.querySelector('.popup-border-path');
+        const diamond = document.querySelector('.diamond-end');
 
-    const pathLength = borderPath.getTotalLength();
-    borderPath.style.strokeDasharray = pathLength;
-    borderPath.style.strokeDashoffset = pathLength;
+        const pathLength = borderPath.getTotalLength();
+        borderPath.style.strokeDasharray = pathLength;
+        borderPath.style.strokeDashoffset = pathLength;
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                popup.classList.add('active');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    popup.classList.add('active');
 
-                let startTime = null;
-                const duration = 2000; // 2s animation
+                    let startTime = null;
+                    const duration = 2000; // 2s animation
 
-                function animateLine(time) {
-                if (!startTime) startTime = time;
-                const elapsed = time - startTime;
-                let progress = Math.min(elapsed / duration, 1);
+                    function animateLine(time) {
+                    if (!startTime) startTime = time;
+                    const elapsed = time - startTime;
+                    let progress = Math.min(elapsed / duration, 1);
 
-                // update line
-                borderPath.style.strokeDashoffset = pathLength * (1 - progress);
+                    // update line
+                    borderPath.style.strokeDashoffset = pathLength * (1 - progress);
 
-                // move diamond exactly at the path tip
-                const point = borderPath.getPointAtLength(pathLength * progress);
-                diamond.setAttribute('transform', `translate(${point.x - 7}, ${point.y - 7}) rotate(45 7 7)`);
+                    // move diamond exactly at the path tip
+                    const point = borderPath.getPointAtLength(pathLength * progress);
+                    diamond.setAttribute('transform', `translate(${point.x - 7}, ${point.y - 7}) rotate(45 7 7)`);
 
-                if (progress < 1) requestAnimationFrame(animateLine);
+                    if (progress < 1) requestAnimationFrame(animateLine);
+                    }
+
+                    requestAnimationFrame(animateLine);
+
+                } else {
+                    popup.classList.remove('active');
+                    // Wait for fade-out transition to finish
+                    const fadeDuration = 800; // same as CSS transition duration
+                    setTimeout(() => {
+                        borderPath.style.strokeDashoffset = pathLength;
+                        diamond.setAttribute('transform', `translate(0,0) rotate(45 7 7)`);
+                    }, fadeDuration);
                 }
+            });
+        }, { threshold: 0.4 });
 
-                requestAnimationFrame(animateLine);
-
-            } else {
-                popup.classList.remove('active');
-                // Wait for fade-out transition to finish
-                const fadeDuration = 800; // same as CSS transition duration
-                setTimeout(() => {
-                    borderPath.style.strokeDashoffset = pathLength;
-                    diamond.setAttribute('transform', `translate(0,0) rotate(45 7 7)`);
-                }, fadeDuration);
-            }
-        });
-    }, { threshold: 0.4 });
-
-    observer.observe(ambienceSection);
-});
+        observer.observe(ambienceSection);
+    });
 </script>
 
 <!-- Dynamic Time Dropdown Script -->
 <script>
-const dateInput = document.getElementById('reservation-date');
-const timeSelect = document.getElementById('reservation-time');
+    const dateInput = document.getElementById('reservation-date');
+    const timeSelect = document.getElementById('reservation-time');
 
-const weekdayTimes = [
-  '8:00 AM','8:30 AM','9:00 AM','9:30 AM',
-  '10:00 AM','10:30 AM','11:00 AM','11:30 AM',
-  '12:00 PM','12:30 PM','1:00 PM','1:30 PM',
-  '2:00 PM','2:30 PM','3:00 PM','3:30 PM',
-  '4:00 PM'
-];
-const weekendTimes = [
-  '8:00 AM','8:30 AM','9:00 AM','9:30 AM',
-  '10:00 AM','10:30 AM','11:00 AM','11:30 AM',
-  '12:00 PM','12:30 PM','1:00 PM','1:30 PM',
-  '2:00 PM','2:30 PM','3:00 PM','3:30 PM',
-  '4:00 PM',
-  '7:00 PM','7:30 PM','8:00 PM','8:30 PM',
-  '9:00 PM', '9:30 PM'
-];
+    const weekdayTimes = [
+    '8:00 AM','8:30 AM','9:00 AM','9:30 AM',
+    '10:00 AM','10:30 AM','11:00 AM','11:30 AM',
+    '12:00 PM','12:30 PM','1:00 PM','1:30 PM',
+    '2:00 PM','2:30 PM','3:00 PM','3:30 PM',
+    '4:00 PM'
+    ];
+    const weekendTimes = [
+    '8:00 AM','8:30 AM','9:00 AM','9:30 AM',
+    '10:00 AM','10:30 AM','11:00 AM','11:30 AM',
+    '12:00 PM','12:30 PM','1:00 PM','1:30 PM',
+    '2:00 PM','2:30 PM','3:00 PM','3:30 PM',
+    '4:00 PM',
+    '7:00 PM','7:30 PM','8:00 PM','8:30 PM',
+    '9:00 PM', '9:30 PM'
+    ];
 
-dateInput.addEventListener('change', () => {
-    const dateValue = dateInput.value;
-    if (!dateValue) return;
+    dateInput.addEventListener('change', () => {
+        const dateValue = dateInput.value;
+        if (!dateValue) return;
 
-    const date = new Date(dateValue);
-    const day = date.getDay(); // 0 = Sunday, 6 = Saturday
-    const isWeekend = (day === 0 || day === 6);
+        const date = new Date(dateValue);
+        const day = date.getDay(); // 0 = Sunday, 6 = Saturday
+        const isWeekend = (day === 0 || day === 6);
 
-    // Enable time dropdown
-    timeSelect.disabled = false;
+        // Enable time dropdown
+        timeSelect.disabled = false;
 
-    // Clear previous options
-    timeSelect.innerHTML = '<option selected disabled>Select Time</option>';
+        // Clear previous options
+        timeSelect.innerHTML = '<option selected disabled>Select Time</option>';
 
-    // Populate based on weekday/weekend
-    const times = isWeekend ? weekendTimes : weekdayTimes;
-    times.forEach(time => {
-        const option = document.createElement('option');
-        option.value = time;
-        option.textContent = time;
-        timeSelect.appendChild(option);
+        // Populate based on weekday/weekend
+        const times = isWeekend ? weekendTimes : weekdayTimes;
+        times.forEach(time => {
+            const option = document.createElement('option');
+            option.value = time;
+            option.textContent = time;
+            timeSelect.appendChild(option);
+        });
     });
-});
+</script>
+
+<!-- Horizontal Scroll Drag Script -->
+<script>
+    const scrollContainer = document.querySelector('.events-scroll');
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    scrollContainer.addEventListener('mousedown', (e) => {
+    isDown = true;
+    scrollContainer.classList.add('active');
+    startX = e.pageX - scrollContainer.offsetLeft;
+    scrollLeft = scrollContainer.scrollLeft;
+    });
+
+    scrollContainer.addEventListener('mouseleave', () => {
+    isDown = false;
+    scrollContainer.classList.remove('active');
+    });
+
+    scrollContainer.addEventListener('mouseup', () => {
+    isDown = false;
+    scrollContainer.classList.remove('active');
+    });
+
+    scrollContainer.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainer.offsetLeft;
+    const walk = (x - startX) * 1.5; // scroll speed multiplier
+    scrollContainer.scrollLeft = scrollLeft - walk;
+    });
 </script>
 
 </body>
