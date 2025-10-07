@@ -85,6 +85,13 @@ html, body {
   color: #473228;
 }
 
+.account-icon {
+  width: 40px;       /* sets width to 40px */
+  height: auto;      /* maintains aspect ratio */
+  padding-right: 20px;
+  margin-left: -15px;
+}
+
 /* NAV DIVIDER LINE WITH DIAMONDS */
 .nav-divider {
   display: flex;
@@ -230,9 +237,9 @@ html, body {
 }
 
 .details-buttons .outline-btn:hover {
-  background-color: #E8E2D7;
-  border: 1.5px solid #66302E;
-  color: #66302E;
+  background-color: #F9F6F1;
+  border: 1.5px solid #C3A358;
+  color: #C3A358;
   font-weight: bold;
 }
 
@@ -816,6 +823,7 @@ html, body {
   background-color: #F9F6F1;
   height: 680px;
   padding-top: 70px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1068,7 +1076,6 @@ html, body {
     padding: 15px 35px;
     font-family: 'Lato', sans-serif;
     font-size: 18px;
-    font-weight: bold;
     color: #F9F6F1;
     background-color: #C3A358;
     border: none;
@@ -1077,7 +1084,9 @@ html, body {
 }
 
 .reservation-btn:hover {
-    background-color: #A88745;
+    color: #C3A358;
+    background-color: #F9F6F1;
+    font-weight: bold;
 }
 
 /* Footer Section */
