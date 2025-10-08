@@ -31,8 +31,6 @@
                     </nav>
                 </div>
             </div>
-
-            <!-- line with diamond ends -->
             <div class="nav-divider">
                 <span class="diamond left"></span>
                 <span class="line"></span>
@@ -42,9 +40,26 @@
             <!-- main signature content -->
             <div class="signature-content"> 
                 <div class="col circles">
-                    <div class="circle" data-index="0"><img src="css/imgs/Home_SignaturePear.png" alt="Poached Pear Tart"></div>
-                    <div class="circle" data-index="1"><img src="css/imgs/Home_SignatureCrossaint.png" alt="Classic Butter Croissant"></div>
-                    <div class="circle" data-index="2"><img src="css/imgs/Home_SignatureCoffee.png" alt="Classic Latte"></div>
+                    <div class="circle" data-index="0">
+                        <svg class="circle-outline" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="45" stroke="#92A079" stroke-width="0" fill="none" />
+                        </svg>
+                        <img src="css/imgs/Home_SignaturePear.png" alt="Poached Pear Tart">
+                    </div>
+
+                    <div class="circle" data-index="1">
+                        <svg class="circle-outline" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="45" stroke="#92A079" stroke-width="0" fill="none" />
+                        </svg>
+                        <img src="css/imgs/Home_SignatureCrossaint.png" alt="Classic Butter Croissant">
+                    </div>
+
+                    <div class="circle" data-index="2">
+                        <svg class="circle-outline" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="45" stroke="#92A079" stroke-width="0" fill="none" />
+                        </svg>
+                        <img src="css/imgs/Home_SignatureCoffee.png" alt="Classic Latte">
+                    </div>
                 </div>
 
                 <div class="col main-img">
@@ -63,8 +78,10 @@
 
             <!-- Buttons go INSIDE the same .container but OUTSIDE .signature-content -->
             <div class="details-buttons">
-                <button class="outline-btn">Explore the rest of the menu →</button>
-                <button class="outline-btn">Become a member & Reserve now →</button>
+                <a href="menu.html">
+                    <button class="outline-btn">Explore the rest of the menu →</button>
+                </a>
+                <button class="outline-btn">Become a member & Access exclusive deals →</button>
             </div>
 
         </div> <!-- END .container -->
@@ -84,7 +101,7 @@
     <div class="popup-container">
         <!-- SVG border is inside container so it is visible and not clipped -->
         <svg class="popup-border-svg" width="472" height="341" viewBox="0 0 472 341" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M472 0 H0 V341 H415" fill="none" class="popup-border-path"/>
+            <path d="M500 0 H0 V341 H415" fill="none" class="popup-border-path"/>
             <g class="diamond-end">
                 <rect width="14" height="14" />
             </g>
@@ -367,13 +384,11 @@
                 <button class="scroll-btn left-btn"><span></span></button>
 
                 <div class="socials-posts">
-                    <div class="social-post-card"><img src="css/imgs/Home_Review1.png" alt="Post 1"></div>
                     <div class="social-post-card"><img src="css/imgs/Home_Review2.jpg" alt="Post 2"></div>
                     <div class="social-post-card"><img src="css/imgs/Home_Review3.jpg" alt="Post 3"></div>
                     <div class="social-post-card"><img src="css/imgs/Home_Review4.jpg" alt="Post 4"></div>
                     <div class="social-post-card"><img src="css/imgs/Home_Review5.jpg" alt="Post 5"></div>
                     <div class="social-post-card"><img src="css/imgs/Home_Review6.jpg" alt="Post 6"></div>
-                    <div class="social-post-card"><img src="css/imgs/post7.jpg" alt="Post 7"></div>
                 </div>
 
                 <button class="scroll-btn right-btn"><span></span></button>
@@ -479,6 +494,114 @@
         </div>
     </footer>
 
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const circles = Array.from(document.querySelectorAll('.col.circles .circle'));
+        const mainImg = document.querySelector('.col.main-img img');
+        const details = document.querySelector('.col.details .details-text');
+
+        const infoData = [
+            {
+                title: 'Banana Praline Tart',
+                desc: 'Roasted hazelnut praline, dark chocolate ganache, and caramelised banana.<br>Lush, nutty, and indulgent — a comforting finish to any meal.',
+                price: '$10.50'
+            },
+            {
+                title: 'Poached Pear Tart',
+                desc: 'Slow-cooked pear glazed in amber caramel, resting on a light cream-custard tart.<br>Elegant, mellow sweetness with a buttery crumble finish.',
+                price: '$10.00'
+            },
+            {
+                title: 'Classic Butter Croissant',
+                desc: 'Flaky, golden layers baked with premium French butter.<br>Light, crisp, and irresistibly aromatic — best paired with your morning coffee.',
+                price: '$5.50'
+            },
+            {
+                title: 'Classic Latte',
+                desc: 'Rich espresso blended with steamed milk.<br>Crafted from our house-roasted beans for balanced depth and warmth.',
+                price: '$6.00 (Hot), $6.50 (Iced)'
+            }
+        ];
+
+        // Track main image index explicitly
+        let mainIndex = 0;
+
+        function animateCircleOutline(circle) {
+            return new Promise(resolve => {
+                const svgCircle = circle.querySelector('circle');
+                const radius = svgCircle.getAttribute('r');
+                const circumference = 2 * Math.PI * radius;
+
+                svgCircle.style.strokeDasharray = circumference;
+                svgCircle.style.strokeDashoffset = circumference;
+                svgCircle.setAttribute('stroke-width', 3);
+
+                const duration = 5000;
+                const step = 50;
+                let elapsed = 0;
+
+                const interval = setInterval(() => {
+                    elapsed += step;
+                    const progress = elapsed / duration;
+                    svgCircle.style.strokeDashoffset = circumference * (1 - progress);
+
+                    if (elapsed >= duration) {
+                        clearInterval(interval);
+                        svgCircle.style.strokeDashoffset = 0;
+                        resolve();
+                    }
+                }, step);
+            });
+        }
+
+        async function animateSwap() {
+            // Define order for swapping images
+            const topCircle = circles[2];
+            const middleCircle = circles[1];
+            const lastCircle = circles[0];
+
+            // Shrink all images
+            const shrinkAnims = [
+                ...circles.map(c => c.querySelector('img').animate([{ transform: 'scale(1)' }, { transform: 'scale(0)' }], { duration: 300, easing: 'ease-in' })),
+                mainImg.animate([{ transform: 'scale(1)' }, { transform: 'scale(0)' }], { duration: 300, easing: 'ease-in' })
+            ];
+            await Promise.all(shrinkAnims.map(a => a.finished));
+
+            // Rotate image sources
+            const tempSrc = topCircle.querySelector('img').src;
+            topCircle.querySelector('img').src = mainImg.src;
+            mainImg.src = lastCircle.querySelector('img').src;
+            lastCircle.querySelector('img').src = middleCircle.querySelector('img').src;
+            middleCircle.querySelector('img').src = tempSrc;
+
+            // Rotate mainIndex
+            mainIndex = (mainIndex + 1) % infoData.length;
+
+            // Update details
+            details.querySelector('h2').textContent = infoData[mainIndex].title;
+            details.querySelector('.desc').innerHTML = infoData[mainIndex].desc;
+            details.querySelector('.price').textContent = infoData[mainIndex].price;
+
+            // Expand all images
+            const expandAnims = [
+                ...circles.map(c => c.querySelector('img').animate([{ transform: 'scale(0)' }, { transform: 'scale(1)' }], { duration: 300, easing: 'ease-out' })),
+                mainImg.animate([{ transform: 'scale(0)' }, { transform: 'scale(1)' }], { duration: 300, easing: 'ease-out' })
+            ];
+            await Promise.all(expandAnims.map(a => a.finished));
+        }
+
+        async function cycleCircles() {
+            const topCircle = circles[0];
+            while (true) {
+                await animateCircleOutline(topCircle);
+                await animateSwap();
+            }
+        }
+
+        cycleCircles();
+    });
+</script>
 
 <!-- Pop-up Animation Script -->
 <script>

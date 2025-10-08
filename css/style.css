@@ -6,13 +6,21 @@ html, body {
   height: 100%;
   overflow-x: hidden;
 }
+body {
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+    overflow-y: scroll; 
+}
+body::-webkit-scrollbar {
+    display: none;
+}
 
 /* Signature Section */
 .signature-section {
   position: relative;
   background-color: #ECE6DB;
   width: auto;
-  height: 774px;
+  height: 810px;
   overflow: hidden;
 }
 .container {
@@ -160,14 +168,12 @@ html, body {
   margin-left: 81px;
   position: relative;
 }
-
 /* Circle, main image, details stay the same as before */
 .main-img, .details {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .circles {
   display: flex;
   flex-direction: column;
@@ -178,8 +184,8 @@ html, body {
   position: relative;
   z-index: 1;
 }
-
 .circle {
+  position: relative;
   width: 179px;
   height: 179px;
   border: 1.5px solid #2E2E2E;
@@ -187,13 +193,43 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: visible;
 }
-
+.circle::before {
+  content: '';
+  position: absolute;
+  top: -5px; /* slightly outside the circle */
+  left: -5px;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  border-radius: 50%;
+  transform: rotate(-90deg) scaleX(0); /* start hidden */
+  transform-origin: center;
+  transition: transform 5s linear;
+  pointer-events: none;
+}
 .circle img {
   width: 100px;
   height: 100px;
 }
+.circle-outline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg); /* start animation from top */
 
+}
+.circle-outline circle {
+    stroke-dasharray: 283; /* 2 * π * r, for r=45 */
+    stroke-dashoffset: 283;
+    stroke:#2E2E2E
+}
+.col.main-img img {
+    transition: transform 0.3s ease; /* used in JS, keep here for safety */
+    transform-origin: center center;   /* scale from center */
+}
 /* Main dish column */
 .main-img img {
   width: 412px;
@@ -202,7 +238,6 @@ html, body {
   display: block;
   margin: 0 auto;
 }
-
 /* Details column */
 .details {
   position: relative;            /* needed for absolute-positioned buttons */
@@ -213,27 +248,24 @@ html, body {
   padding-top: 80px;             /* space from top */
   gap: 16px;                      /* default vertical spacing between elements */
 }
-
 .details h2 {
   font-family: 'Playfair Display', serif;
   font-style: italic;
   font-weight: bold;
   font-size: 32px;
 }
-
 .details .desc {
   font-family: 'Lato', sans-serif;
   font-style: italic;
   font-size: 20px;
   padding-left: 20px;
+  line-height: 1.4;
 }
-
 .details .price {
   font-family: 'Lato', sans-serif;
   font-style: italic;
   font-size: 20px;
 }
-
 .details-buttons {
   display: flex;
   flex-direction: column;
@@ -244,7 +276,6 @@ html, body {
   bottom: 200px;
   z-index: 5;            
 }
-
 .details-buttons .outline-btn {
   background-color: #F9F6F1;
   border: 1.5px solid #2E2E2E;
@@ -260,7 +291,6 @@ html, body {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .details-buttons .outline-btn:hover {
   background-color: #F9F6F1;
   border: 1.5px solid #C3A358;
@@ -276,7 +306,6 @@ html, body {
   overflow: hidden;
   background-color: #473228; /* fallback background */
 }
-
 .ambience-container {
   position: absolute;
   top: 50%;
@@ -286,8 +315,6 @@ html, body {
   object-fit: cover;     /* crop to fill the container */
   transform: translate(-50%, -50%); /* center video */
 }
-
-/* Video styling */
 .ambience-video {
   width: 100%;
   height: 100%;
@@ -313,15 +340,12 @@ html, body {
   overflow: visible;         /* allow SVG to extend outside */
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-
 .popup-container.active {
   opacity: 1;
   pointer-events: auto;
   /* optional: slight slide in */
   transform: translateY(-50%) translateX(0);
 }
-
-/* Popup border container */
 .popup-border-svg {
   position: absolute;
   top: 0;
@@ -332,8 +356,6 @@ html, body {
   pointer-events: none;
   z-index: 1;
 }
-
-/* Path styling */
 .popup-border-path {
   stroke: #C3A358;
   stroke-width: 3;
@@ -341,13 +363,9 @@ html, body {
   stroke-dashoffset: 1400;
   fill: none;
 }
-
-/* Diamond */
 .diamond-end rect {
   fill: #C3A358;
 }
-
-/* Popup text container */
 .popup-content {
   position: relative;
   z-index: 2;
@@ -363,7 +381,6 @@ html, body {
   padding: 0 30px;          /* optional padding inside text box */
   gap: 20px;              /* space between rows */
 }
-
 .popup-title {
     font-family: 'Playfair Display', serif;
     margin: 0;
@@ -371,7 +388,6 @@ html, body {
     line-height: 16px;
     text-align: center;
 }
-
 .popup-line {
     display: flex;
     align-items: center;
@@ -379,24 +395,17 @@ html, body {
     justify-content: center; 
     margin: 0 auto;
 }
-
 .popup-line .line {
     flex: 1;
     height: 2px;
     background-color: #C3A358;
 }
-
 .popup-line .diamond {
     width: 10px;
     height: 10px;
     background-color: #C3A358;
     transform: rotate(45deg);
 }
-
-.popup-line .diamond.left { margin-right: -5px; }
-.popup-line .diamond.right { margin-left: -5px; }
-
-/* Common row styling */
 .popup-row {
     display: flex;
     width: calc(100% - 30px);
@@ -404,9 +413,6 @@ html, body {
     gap: 10px;
     box-sizing: border-box;
 }
-
-/* Wrap for rows 3–5 */
-/* Rows 3–5 wrapper */
 .popup-lower-rows {
     display: flex;
     flex-direction: column;
@@ -414,46 +420,33 @@ html, body {
     width: 100%; /* full width of popup content */
     align-items: center; /* horizontally center all rows */
 }
-
-/* Row 3: Persons */
 .popup-row-persons {
     width: 80%; /* match roughly the width of datetime row */
     display: flex;
     justify-content: center;
 }
-
-/* Row 4: Date & Time */
 .popup-row-datetime {
     display: flex;
     justify-content: space-between;
     width: 80%; /* same width as row 3 */
     gap: 10px; 
 }
-
-/* Each dropdown fills available space */
 .popup-row-datetime .date-dropdown,
 .popup-row-datetime .time-dropdown {
     flex: 1;
 }
-
-/* Persons dropdown same width as row 4 */
 .popup-row-persons .unified-dropdown {
     width: 100%; 
 }
-
-/* Row 5: Button */
 .popup-row-button {
     width: 80%; /* same width as other rows */
     display: flex;
     justify-content: flex-end;
 }
-
-/* Unified dropdown styling for all rows */
 .unified-dropdown {
     position: relative;
     width: 100%;
 }
-
 .unified-dropdown select,
 .unified-dropdown input[type="date"] {
     width: 100%;
@@ -465,8 +458,6 @@ html, body {
     appearance: none; /* remove default arrow */
     box-sizing: border-box;
 }
-
-/* Dropdown arrow */
 .unified-dropdown .dropdown-icon {
     position: absolute;
     right: 10px;
@@ -476,18 +467,13 @@ html, body {
     font-size: 12px;
     color: #2E2E2E;
 }
-
-/* Specific widths */
 .popup-row-persons .unified-dropdown {
     max-width: calc(50% + 50% + 10px); /* date + time + gap */
 }
-
 .popup-row-datetime .date-dropdown,
 .popup-row-datetime .time-dropdown {
     flex: 1; /* equal width */
 }
-
-/* Button styling */
 .outline-btn {
     background-color: #C3A358;
     border: 1.5px solid #C3A358;
@@ -499,7 +485,6 @@ html, body {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
 .outline-btn:hover {
     background-color: #F9F6F1;
     color: #C3A358;
@@ -1003,11 +988,11 @@ html, body {
 }
 
 .left-btn {
-    left: 2720px; /* distance from left edge of screen */
+    left: 1700px; /* distance from left edge of screen */
 }
 
 .right-btn {
-    right: 2720px; /* distance from right edge of screen */
+    right: 1700px; /* distance from right edge of screen */
 }
 
 /* Row 3: Social Icons */
