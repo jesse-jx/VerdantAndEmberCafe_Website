@@ -1,1 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M453.2 112L523.8 112L369.6 288.2L551 528L409 528L297.7 382.6L170.5 528L99.8 528L264.7 339.5L90.8 112L236.4 112L336.9 244.9L453.2 112zM428.4 485.8L467.5 485.8L215.1 152L173.1 152L428.4 485.8z"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_4" data-name="Layer 4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3b2f2f;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M38.02,4.53h6.95l-15.17,17.34,17.85,23.6h-13.97l-10.95-14.31-12.52,14.31H3.24l16.23-18.55L2.36,4.53h14.33l9.89,13.08,11.44-13.08ZM35.58,41.32h3.85L14.59,8.47h-4.13l25.12,32.85Z"/>
+</svg>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verdant & Ember | Signature Section</title>
+    <title>Verdant & Ember Homepage</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&family=Lato:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -16,16 +16,18 @@
             <!-- navigation bar -->
             <div class="navbar">
                 <div class="logo-container">
-                    <img src="css/imgs/logo.png" alt="Verdant & Ember Logo" class="logo">
+                    <a href="homepage.html">
+                        <img src="css/imgs/logo.png" alt="Verdant & Ember Logo" class="logo">
+                    </a>
                 </div>
                 <div class="links-container">
                     <nav class="nav-links">
-                        <a href="#">Menu</a>
+                        <a href="menu.html">Menu</a>
                         <a href="#">About Us</a>
                         <a href="#">Perks</a>
                         <a href="#">Shop</a>
                         <a href="#">Reservations</a>
-                        <img src="css/imgs/NavBar_User.svg" alt="Account" class="account-icon">
+                        <img src="css/imgs/NavBar_UserBrown.svg" alt="Account" class="account-icon">
                     </nav>
                 </div>
             </div>
@@ -454,7 +456,9 @@
                 </div>
 
                 <!-- Center image -->
-                <img src="css/imgs/VerdantAndEmber.png" alt="Footer Image" class="footer-middle-img">
+                <a href="homepage.html" class="footer-logo-link">
+                    <img src="css/imgs/VerdantAndEmber.png" alt="Footer Image" class="footer-middle-img">
+                </a>
 
                 <!-- Right line with diamond -->
                 <div class="line-container right-line">
@@ -745,6 +749,5 @@
         observer.observe(reservationSection);
     });
 </script>
-
 </body>
 </html>
