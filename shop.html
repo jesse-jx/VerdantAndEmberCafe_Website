@@ -42,7 +42,7 @@
                     <!-- shop breadcrumb trail from homepage -->
                      <div class="shop-navbar">
                         <div class="breadcrumb">
-                            <a href="#">home</a>
+                            <a href="homepage.html">home</a>
                             <span>//</span>
                             <a href="#">shop</a>
                             <span>//</span>
@@ -73,24 +73,190 @@
             </div>
         </section>
 
-        <section class="product-listing">
+        <section class="product-content">
             <div class="container">
                 <div class="product-landing">
-                    <div class="product-image">
-
+                    <div class="product-image">     <!--Left side-->
+                        <div class="product-image-frame">
+                            <img src="css/imgs/V&E_CoffeeBeans.png" alt="Morning Ember — House Coffee Beans" width="331" height="604">
+                        </div>
                     </div>
 
-                    <div class="product-details">
+                    <div class="product-details">     <!--Right side-->
+                        <!-- Group 1: Name / Price / Review / Description / Qty + Add to cart -->
+                        <div class="product-group product-group-1">
+                            <table class="product-info-table" role="presentation">
+                                <tr>
+                                    <td class="p-title">
+                                        <h1 class="product-name">Morning Ember — House Coffee Beans</h1>
+                                    </td>
+                                </tr>
 
+                                <tr>
+                                    <td class="p-price-review">
+                                        <div class="price">$24.00/250g</div>
+                                        <div class="review">
+                                            <img src="css/imgs/4StarRating.png" alt="4-stars" class="stars" />
+                                            <span class="review-text">(18 customer reviews)</span>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="p-description">
+                                        <p>Roasted in small batches to balance deep cocoa and soft fruit notes. For mornings that begin slow — or nights where conversations never quite end.</p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="p-actions">
+                                        <div class="qty-add">
+                                            <div class="qty-control">
+                                                <button type="button" class="qty-btn" aria-label="decrease">−</button>
+                                                <input type="text" class="qty-input" value="1" aria-label="quantity">
+                                                <button type="button" class="qty-btn" aria-label="increase">+</button>
+                                            </div>
+
+                                            <button class="add-to-cart-btn" type="button">
+                                                <img src="css/imgs/AddToCart_Btn.svg">
+                                                add to cart
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!-- Group 2: Toggle menu (Nutrition / Additional Information / Reviews) -->
+                        <div class="product-group product-group-2">
+                            <nav class="product-toggle">
+                                <ul>
+                                    <li class="toggle-item active">Nutrition</li>
+                                    <li class="toggle-item">Additional Information</li>
+                                    <li class="toggle-item">Reviews</li>
+                                </ul>
+                            </nav>
+
+                            <div class="toggle-divider"></div>
+
+                            <div class="toggle-content">
+                                <img src="css/imgs/NutritionInfo.png" alt="Nutritional facts" width="339px" height="535px">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="product-usage">
+                    <div class="usage-inner">
+                        <div class="usage-header">
+                            <h2 class="usage-title">Used in-house in these menu items</h2>
+                            <div class="usage-line"></div>
+                        </div>
 
+                        <div class="usage-items">
+                            <div class="usage-item">
+                                <img src="css/imgs/Menu_DrinkEmberColdBrew.png" alt="Ember Cold Brew" class="usage-thumb" width="100" height="100">
+                                <div class="usage-copy">
+                                    <div class="usage-name">Ember Cold Brew</div>
+                                    <div class="usage-price">$9.00</div>
+                                    <div class="usage-desc">House cold brew with burnt caramel and vanilla undertones.</div>
+                                </div>
+                            </div>
+
+                            <div class="usage-item">
+                                <img src="css/imgs/MenuCafe_DrinkEspresso.png" alt="Espresso" class="usage-thumb" width="100" height="100">
+                                <div class="usage-copy">
+                                    <div class="usage-name">Espresso</div>
+                                    <div class="usage-price">$4.50</div>
+                                    <div class="usage-desc">Full-bodied and aromatic. Pure focus in a cup.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="product-recommendations">
+                    <table class="recommendation-table" role="presentation">
+                        <tr>
+                            <td class="rec-cell">
+                                <table class="rec-inner" role="presentation">
+                                    <tr>
+                                        <td class="rec-img">
+                                            <img src="css/imgs/Ember_CoffeeDripper.png" alt="Ember Coffee Dripper" width="283" height="216">
+                                        </td>
+                                    </tr>
 
+                                    <tr>
+                                        <td class="rec-title">Ember Dripper</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-price">$34.80</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-desc">A sleek glass pour-over designed for clarity and calm.</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-action"><button class="rec-cart" type="button"><img src="css/imgs/AddToCart_Btn.svg" alt="cart plus"></button></td>
+                                    </tr>
+                                </table>
+                            </td>
+
+                            <td class="rec-cell">
+                                <table class="rec-inner" role="presentation">
+                                    <tr>
+                                        <td class="rec-img">
+                                            <img src="css/imgs/Verdant_GooseneckKettle.png" alt="Verdant Gooseneck Kettle" width="319" height="319">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-title">Verdant Kettle — Gooseneck Edition</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-price">$68.00</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-desc">Precision-pour stainless steel with a matte black finish.</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-action"><button class="rec-cart" type="button"><img src="css/imgs/AddToCart_Btn.svg" alt="cart plus"></button></td>
+                                    </tr>
+                                </table>
+                            </td>
+
+                            <td class="rec-cell">
+                                <table class="rec-inner" role="presentation">
+                                    <tr>
+                                        <td class="rec-img">
+                                            <img src="css/imgs/Ember_CupSet.png" alt="Ember Cup Set" width="281" height="295">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-title">Ember Cup Set (2pcs)</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-price">$32.00</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-desc">Matte ceramic cups designed in-house. For shared sips.</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-action"><button class="rec-cart" type="button"><img src="css/imgs/AddToCart_Btn.svg" alt="cart plus"></button></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
                 </div> 
             </div>
         </section>
