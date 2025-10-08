@@ -1574,15 +1574,95 @@ html, body {
   overflow-wrap: break-word;
 }
 
-/*NavBar and SubNavBar for Shop*/
+/*PRODUCTS NAVBAR, SHOP NAVBAR*/
 .products-navbar {
   width: 100%;
   height: 224px;
   background-color: #ECE6DB;
-  color: #2E2E2E;
+}
+
+.shop-navbar{
+  width: 1150px;
+  margin: 0 auto; /* centers content */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
   font-family: 'Lato', sans-serif;
+}
+
+/* SHOP BREADCRUMB */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #2E2E2E;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: #C1A289;
+}
+
+.breadcrumb span {
+  color: #C3A358;
   font-size: 16px;
 }
+
+/* SHOP SEARCH BAR*/
+.shop-actions {
+  display: flex;
+  align-items: center;
+  gap: 35px; /* spacing between search and filter/cart */
+}
+
+.search-form {
+  position: relative;
+  width: 646px;
+  height: 48px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.search-form input {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #C7A185;
+  border-radius: 24px;
+  padding: 0 45px 0 18px;
+  color: #2E2E2E;
+  font-size: 15px;
+  outline: none;
+}
+
+.search-form input::placeholder {
+  color: #C7A185;
+}
+
+.search-btn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #2E2E2E;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* POSITION OF FILTER + CART ICONS */
+.filter-btn, .cart-btn {
+  color: #2E2E2E;
+  font-size: 18px;
+  text-decoration: none;
+}
+
 /* Ensure text inside the restaurant menu list is light on the dark background */
 .menu-list.restaurant .menu-header,
 .menu-list.restaurant .menu-row1,
