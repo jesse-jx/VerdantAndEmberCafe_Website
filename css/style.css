@@ -36,10 +36,9 @@ html, body {
   align-items: flex-start; /* align top of logo and links by default */
   position: relative;
 }
-
 /* Logo-specific spacing */
 .logo-container {
-  padding-top: 22px; /* adjust independently */
+  padding-top: 41px; /* adjust independently */
 }
 .logo-container a {
   display: inline-block;
@@ -48,8 +47,6 @@ html, body {
 .logo-container a:focus {
   outline: none;
 }
-
-
 /* Nav-links-specific spacing */
 .links-container {
   padding-top: 53px;
@@ -115,7 +112,6 @@ html, body {
   padding-right: 20px;
   margin-left: -15px;
 }
-
 /* NAV DIVIDER LINE WITH DIAMONDS */
 .nav-divider {
   display: flex;
@@ -138,11 +134,20 @@ html, body {
   transform: rotate(45deg);
   flex-shrink: 0;
 }
-.nav-divider .left {
-  margin-right: -5px; /* closes the gap */
+/* Restaurant variant colors */
+.navbar.navbar-restaurant .nav-links a,
+.navbar.navbar-restaurant .nav-links a::after,
+.navbar.navbar-restaurant .nav-links a::before {
+    color: #F9F6F1;          /* link text color */
 }
-.nav-divider .right {
-  margin-left: -5px; /* closes the gap */
+.menu-NavBar .navbar.navbar-restaurant + .nav-divider .line,
+.menu-NavBar .navbar.navbar-restaurant + .nav-divider .diamond,
+.nav-divider.active .line,
+.nav-divider.active .diamond {
+    background-color: #F9F6F1; /* underline line and diamonds */
+}
+.menu-group.active.restaurant .menu-NavBar {
+    background-color: #66302E;
 }
 
 /* SIGNATURE CONTENT (3 COLUMNS) */
@@ -1109,6 +1114,8 @@ html, body {
 }
 
 /* Menu Page */
+.menu-wrapper { position: relative; }
+
 .menu-NavBar {
     position: relative;
     background-color: #92A079;
@@ -1265,12 +1272,11 @@ html, body {
 .menu-btn[data-menu="cafe"]::after {
   content: "";
   position: absolute;
-  right: 50%;                /* align to center-ish */
+  right: 0;                /* anchor to right */
   bottom: -8px;
-  width: 0;                  /* start hidden */
+  width: 0;                /* start hidden */
   height: 2px;
   background-color: #C3A358;
-  transform: translateX(50%); /* center the line relative to width */
   transition: width 0.3s ease;
 }
 
@@ -1278,14 +1284,14 @@ html, body {
 .menu-btn[data-menu="cafe"]::before {
   content: "";
   position: absolute;
-  bottom: -11px;             /* align with line */
-  left: 0;                   /* left end */
+  bottom: -11px;       /* align with underline */
+  right: 0;            /* start at right edge */
   width: 8px;
   height: 8px;
   background-color: #C3A358;
   transform: rotate(45deg);
-  opacity: 0;                /* initially hidden */
-  transition: opacity 0.3s ease;
+  opacity: 0;
+  transition: right 0.3s ease, opacity 0.3s ease;
 }
 
 /* On hover / active */
@@ -1296,7 +1302,18 @@ html, body {
 
 .menu-btn[data-menu="cafe"]:hover::before,
 .menu-btn[data-menu="cafe"].active::before {
-  opacity: 1;               /* show diamond */
+  right: calc(100% - 8px); /* move along with the growing line */
+  opacity: 1;
+}
+
+.menu-group {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.6s ease;
+}
+
+.menu-group.active {
+    max-height: 5000px; /* large enough to fit content */
 }
 
 /* Special Text Section */
@@ -1392,22 +1409,23 @@ html, body {
     height: 100%;
 }
 
-/* Circular transition overlay */
 .circle-transition {
   position: absolute;
+  left: 0;
+  top: 0;
   width: 0;
   height: 0;
   border-radius: 50%;
-  background-color: #ECE6DB;
-  top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%) scale(0);
-  z-index: 3;
-  transition: transform 1s ease-out;
+  transition: transform 650ms ease, opacity 200ms ease;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0;
 }
 
 .circle-transition.active {
-  transform: translate(-50%, -50%) scale(10);
+    width: 2000px; /* large enough to cover viewport */
+    height: 2000px;
 }
 
 /* Section fade handling */
@@ -1431,7 +1449,19 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 60px; 
-  color: #F9F6F1;
+}
+
+/* Restaurant Menu Section */
+.menu-list.restaurant {
+  background-color: #66302E;
+  padding: 80px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.menu-group.active.restaurant {
+  background-color: #66302E;
 }
 
 /* Category Header */
@@ -1485,31 +1515,33 @@ html, body {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 columns */
   gap: 30px 60px; /* row gap | column gap */
+  justify-content: center;
 }
 
 /* Individual food cards */
 .menu-item {
-  color: #2E2E2E;
   border-radius: 10px;
   padding: 20px;
   display: flex;
   align-items: center;
-  gap: 25px; /* fixed gap between image and text */
-  width: 100%; /* you can adjust this depending on grid */
-  max-width: 550px; /* fixed size control */
-  height: 200px; /* fixed card height */
+  gap: 25px;
+  width: 100%;
+  max-width: 550px;
+  height: 200px;
   box-sizing: border-box;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Image column */
+/* Image column — fixed size, centered, not clipped */
 .menu-img {
-  height: auto;            
-  max-height: 100%;         
-  width: auto;
-  max-width: 200px;
+  width: 150px;       /* fixed width */
+  height: 150px;      /* fixed height */
+  object-fit: contain; /* scales image to fit without clipping */
   border-radius: 8px;
   flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Text column */
@@ -1550,6 +1582,44 @@ html, body {
   color: #2E2E2E;
   font-family: 'Lato', sans-serif;
   font-size: 16px;
+}
+/* Ensure text inside the restaurant menu list is light on the dark background */
+.menu-list.restaurant .menu-header,
+.menu-list.restaurant .menu-row1,
+.menu-list.restaurant .menu-row2 p,
+.menu-list.restaurant .category-text,
+.menu-list.restaurant .item-name,
+.menu-list.restaurant .item-price {
+  color: #F9F6F1;
+}
+
+/* ensure diamonds and line inside the restaurant menu-list use the light variant */
+.menu-list.restaurant .diamond {
+  background-color: transparent; /* preserve diamond shape via border if hollow */
+}
+.menu-list.restaurant .diamond.hollow {
+  border-color: #F9F6F1;
+}
+.menu-list.restaurant .diamond.filled, .menu-list.restaurant .line {
+  background-color: #F9F6F1;
+}
+
+.menu-group {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.menu-group.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  z-index: 2;
 }
 
 /* Footer Section */

@@ -9,382 +9,721 @@
 </head>
 
 <body>
-    <section class="menu-NavBar">
-        <!-- navigation bar -->
-        <div class="navbar">
-            <div class="logo-container">
-                <a href="homepage.html">
-                    <img src="css/imgs/logo.png" alt="Verdant & Ember Logo" class="logo">
-                </a>
-            </div>
-            <div class="links-container">
-                <nav class="nav-links">
-                    <a href="#" class="nav-link active">Menu</a>
-                    <a href="#">About Us</a>
-                    <a href="#">Perks</a>
-                    <a href="shop.html">Shop</a>
-                    <a href="#">Reservations</a>
-                    <img src="css/imgs/NavBar_UserBrown.svg" alt="Account" class="account-icon">
-                </nav>
-            </div>
+    <section class="menu-wrapper">
+        <!-- Cafe Variant -->
+        <div class="menu-group cafe active">
+            <!-- Navbar -->
+            <section class="menu-NavBar">
+                <div class="navbar navbar-cafe">
+                    <div class="logo-container">
+                        <a href="homepage.html">
+                            <img src="css/imgs/VerdantAndEmberLogo_Dark.png" alt="Verdant & Ember Logo" class="logo">
+                        </a>
+                    </div>
+                    <div class="links-container">
+                        <nav class="nav-links">
+                            <a href="#" class="nav-link active">Menu</a>
+                            <a href="#">About Us</a>
+                            <a href="#">Perks</a>
+                            <a href="#">Shop</a>
+                            <a href="#">Reservations</a>
+                            <img src="css/imgs/NavBar_UserBrown.svg" alt="Account" class="account-icon">
+                        </nav>
+                    </div>
+                </div>
+                <div class="nav-divider cafe-divider">
+                    <span class="diamond left"></span>
+                    <span class="line"></span>
+                    <span class="diamond right"></span>
+                </div>
+            </section>
+
+            <!-- Banner Section -->
+            <section class="menu-banner">
+                <img src="css/imgs/CafeMenu_Banner.jpg" alt="Cafe Banner" class="banner-img cafe active">
+
+                <!-- Content Centered -->
+                <div class="banner-content">
+                    <h2 class="menu-heading">Our Menu</h2>
+
+                    <div class="menu-toggle">
+                        <button class="menu-btn active" data-menu="cafe">Cafe Menu</button>
+                        <div class="divider"></div>
+                        <button class="menu-btn" data-menu="restaurant">Restaurant Menu</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Special text -->
+            <section class="special-text">
+                <div class="special-container">
+                    <!-- Left Column: Text -->
+                    <div class="special-left">
+                        <div class="special-row row1">
+                            <p>Fresh lunches made for busy schedules.</p>
+                        </div>
+                        <div class="special-row row2">
+                            <p>Preorder, collect, enjoy.</p>
+                        </div>
+                        <div class="special-row row3">
+                            <p><strong>Why Preorder?</strong></p>
+                            <ul>
+                                <li>Preorder now to guarantee your favourites.</li>
+                                <li>Save up to 30 minutes of waiting time — skip the queue and the crowd.</li>
+                                <li>Preorder to-go or reserve a table and have it in-store.</li>
+                            </ul>
+                            <p>
+                                <br>Preorder opens: &nbsp;<strong>8:00 – 11:00</strong><br>Ready for collection: &nbsp;<strong>11:45 – 14:30</strong>
+                            </p>
+                        </div>
+                        <div class="special-row row4">
+                            <button>Preorder Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Image -->
+                    <div class="special-right">
+                        <img src="css/imgs/CafeMenu_Preorder.png" alt="Cafe Menu Preorder Image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Menu Section -->
+            <section class="menu-content">
+                <div class="menu-list cafe active">
+                    <div class="menu-category">
+                        <h2 class="menu-header">
+                            <span class="diamond hollow"></span>
+                            <span class="category-text">BEVERAGES</span>
+                            <span class="diamond hollow"></span>
+                            <span class="line"></span>
+                            <span class="diamond filled"></span>
+                        </h2>
+                        <div class="menu-grid">
+                            <div class="menu-item">
+                                <img src="css/imgs/Menu_DrinkEmberColdBrew.png" alt="Ember Cold Brew" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Ember Cold Brew</span>
+                                        <span class="item-price">$9.00</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>House cold brew with burnt caramel and vanilla undertones.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuCafe_DrinkEspresso.png" alt="Espresso" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Espresso</span>
+                                        <span class="item-price">$4.50</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Full-bodied and aromatic. Pure focus in a cup.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuCafe_DrinkLatte.png" alt="Latte" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Latte (Hot / Iced)</span>
+                                        <span class="item-price">$6.00 / 6.50</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Smooth espresso mellowed with creamy steamed milk.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuCafe_DrinkCappuccino.png" alt="Cappuccino" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Cappuccino</span>
+                                        <span class="item-price">$6.00</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Rich espresso topped with velvety foam and cocoa dusting.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuCafe_DrinkDirty.png" alt="Dirty Chilled" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Dirty (Chilled)</span>
+                                        <span class="item-price">$6.50</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Espresso poured over cold milk for a bold, layered sip.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuCafe_DrinkMatcha.png" alt="Matcha Latte" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Matcha Latte<br>(Hot / Iced)</span>
+                                        <span class="item-price">$6.50 / 7.00</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Ceremonial matcha mellowed with creamy steamed milk.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuCafe_DrinkMango.png" alt="Mango Passionfruit Tea" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Mango Passionfruit Tea<br>(Hot / Iced)</span>
+                                        <span class="item-price">$6.00 / 6.50</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Tropical fruit tea with floral honey sweetness.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-category">
+                        <h2 class="menu-header">
+                            <span class="diamond hollow"></span>
+                            <span class="category-text">BITES</span>
+                            <span class="diamond hollow"></span>
+                            <span class="line"></span>
+                            <span class="diamond filled"></span>
+                        </h2>
+                        <div class="menu-grid">
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuCafe_SideTater.png" alt="Mentaiko Tater Tots" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Mentaiko Tater Tots</span>
+                                        <span class="item-price">$9.90</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Tater tots coated in creamy mentaiko and parmesan shavings.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuCafe_SideChix.png" alt="Crispy Chicken Chunks" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Crispy Chicken Chunks</span>
+                                        <span class="item-price">$10.90</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Golden-battered chicken bites with house dip. (Ranch / Mentaiko)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuCafe_SideSalad.png" alt="Garden Salad" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Garden Salad</span>
+                                        <span class="item-price">$7.90</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Seasonal greens, cherry tomatoes, croutons, dressing and parmesan shavings.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-category">
+                        <h2 class="menu-header">
+                            <span class="diamond hollow"></span>
+                            <span class="category-text">MAINS</span>
+                            <span class="diamond hollow"></span>
+                            <span class="line"></span>
+                            <span class="diamond filled"></span>
+                        </h2>
+                        <div class="menu-grid">
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuCafe_MainUdon.png" alt="Miso Carbonara Udon" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Miso Carbonara Udon<br>(Seasonal)</span>
+                                        <span class="item-price">$21.90</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Udon tossed in creamy parmesan-miso sauce, topped with smoked bacon, onsen egg, and a sprinkle of seaweed.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuCafe_MainLaksa.png" alt="Laksa Prawn Linguine" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Laksa Prawn Linguine<br>(Seasonal)</span>
+                                        <span class="item-price">$22.90</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Linguine in house-made laksa broth, served with tiger prawns, tofu puffs, and fresh herbs.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuCafe_MainSalmon.png" alt="Smoked Salmon Sourdough" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Smoked Salmon Sourdough</span>
+                                        <span class="item-price">$15.90</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Smoked salmon with cream cheese, fresh greens, and a side of salad and tater tots.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuCafe_MainChicken.png" alt="Rosemary Chicken Sourdough" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Rosemary Chicken Sourdough</span>
+                                        <span class="item-price">$13.90</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Grilled rosemary chicken breast, house sauce and fresh greens with a side of salad and tater tots.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuCafe_MainMushroom.png" alt="Guacamole Mushroom Sourdough" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Guacamole Mushroom Sourdough</span>
+                                        <span class="item-price">$10.90</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Roasted mushrooms layered with guacamole, fresh greens and a side of salad and tater tots,</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuCafe_MainToast.png" alt="French Toast with Seasonal Jam" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">French Toast with Seasonal Jam</span>
+                                        <span class="item-price">$15.50</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Brioche soaked in egg custard, served with fruit jam, berries, whipped cream, and honey.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-category">
+                        <h2 class="menu-header">
+                            <span class="diamond hollow"></span>
+                            <span class="category-text">BAKES</span>
+                            <span class="diamond hollow"></span>
+                            <span class="line"></span>
+                            <span class="diamond filled"></span>
+                        </h2>
+                        <div class="menu-grid">
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuCafe_BakeCroissant.png" alt="Classic Butter Croissant" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Classic Butter Croissant</span>
+                                        <span class="item-price">$5.50</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Flaky, golden layers baked with premium French butter.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuCafe_BakeCranberry.png" alt="Oatmeal Cranberry Brookie" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Oatmeal Cranberry Brookie<br>(Seasonal)</span>
+                                        <span class="item-price">$5.50</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Soft brownie-meets-cookie blend, with oats and tart cranberries for balance.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuCafe_BakeMuffin.png" alt="Blueberry Cream Cheese Muffin" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Blueberry Cream Cheese Muffin</span>
+                                        <span class="item-price">$5.50</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Bursting with blueberries and swirled with velvety cream cheese.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuCafe_BakeCookie.png" alt="Chocolate Chip Cookie" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Chocolate Chip Cookie</span>
+                                        <span class="item-price">$5.00</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Crisp on the outside, chewy within, and loaded with dark chocolate chunks.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <!-- line with diamond ends -->
-        <div class="nav-divider">
-            <span class="diamond left"></span>
-            <span class="line"></span>
-            <span class="diamond right"></span>
-        </div>
-    </section>
+        <!-- Restaurant Variant -->
+        <div class="menu-group restaurant">
+            <!-- Navbar -->
+            <section class="menu-NavBar">
+                <div class="navbar navbar-restaurant">
+                    <div class="logo-container">
+                        <a href="homepage.html">
+                            <img src="css/imgs/logo.png" alt="Verdant & Ember Logo" class="logo">
+                        </a>
+                    </div>
+                    <div class="links-container">
+                        <nav class="nav-links">
+                            <a href="#" class="nav-link active">Menu</a>
+                            <a href="#">About Us</a>
+                            <a href="#">Perks</a>
+                            <a href="#">Shop</a>
+                            <a href="#">Reservations</a>
+                            <img src="css/imgs/NavBar_UserCream.svg" alt="Account" class="account-icon">
+                        </nav>
+                    </div>
+                </div>
+                <div class="nav-divider restaurant-divider">
+                    <span class="diamond left"></span>
+                    <span class="line"></span>
+                    <span class="diamond right"></span>
+                </div>
+            </section>
 
-    <!-- Banner with toggle buttons -->
-    <section class="menu-banner">
-        <img src="css/imgs/CafeMenu_Banner.jpg" alt="Cafe Banner" class="banner-img cafe active">
-        <img src="css/imgs/RestaurantMenu_Banner.jpg" alt="Restaurant Banner" class="banner-img restaurant">
+            <!-- Banner Section -->
+            <section class="menu-banner">
+                <img src="css/imgs/RestaurantMenu_Banner.jpg" alt="Restaurant Banner" class="banner-img restaurant">
 
-        <!-- Content Centered -->
-        <div class="banner-content">
-            <h2 class="menu-heading">Our Menu</h2>
+                <!-- Content Centered -->
+                <div class="banner-content">
+                    <h2 class="menu-heading">Our Menu</h2>
 
-            <div class="menu-toggle">
-                <button class="menu-btn active" data-menu="cafe">Cafe Menu</button>
-                <div class="divider"></div>
-                <button class="menu-btn" data-menu="restaurant">Restaurant Menu</button>
-            </div>
+                    <div class="menu-toggle">
+                        <button class="menu-btn" data-menu="cafe">Cafe Menu</button>
+                        <div class="divider"></div>
+                        <button class="menu-btn active" data-menu="restaurant">Restaurant Menu</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Special text for Restaurant -->
+            <section class="special-text">
+                <div class="special-container">
+                    <div class="special-left">
+                        <div class="special-row row1">
+                            <p>Customise your dining experience.</p>
+                        </div>
+                        <div class="special-row row2">
+                            <p>Preorder, arrive, enjoy.</p>
+                        </div>
+                        <div class="special-row row3">
+                            <p><strong>Why Customise?</strong></p>
+                            <ul>
+                                <li>Design your own 3- or 4-course dinner: choose your favourite appetiser, main, dessert, and/or drink.</li>
+                                <li>Skip indecision and long waits — your appetisers will be served moments after you’re seated.</li>
+                                <li>Spend less time deciding, and more time connecting with the people who matter.</li>
+                            </ul>
+                            <p><br>Preorder opens: &nbsp;<strong>8:00 – 15:00</strong><br>Arrive anytime from: &nbsp;<strong>19:00 – 21:00</strong></p>
+                        </div>
+                        <div class="special-row row4">
+                            <button>Customise Now</button>
+                        </div>
+                    </div>
+                    <div class="special-right">
+                        <img src="css/imgs/RestaurantMenu_Preorder.png" alt="Restaurant Menu Preorder Image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Restaurant menu section -->
+            <section class="menu-content">
+                <div class="menu-list restaurant">
+                    <div class="menu-category">
+                        <h2 class="menu-header">
+                            <span class="diamond restaurant hollow"></span>
+                            <span class="category-text">APPETISERS</span>
+                            <span class="diamond restaurant hollow"></span>
+                            <span class="restaurant line"></span>
+                            <span class="diamond restaurant filled"></span>
+                        </h2>
+                        <div class="menu-grid">
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuRestaurant_AppeCorn.png" alt="Grilled Corn Ribs with Smoked Paprika" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Grilled Corn Ribs with Smoked Paprika</span>
+                                        <span class="item-price">$14.00</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Corn ribs grilled to perfection, dusted with smoked paprika, served with house aioli.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuRestaurant_AppeChixBite.png" alt="Yuzu Glazed Chicken Bites" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Yuzu Glazed Chicken Bites</span>
+                                        <span class="item-price">$18.00</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Crispy chicken tossed in tangy yuzu glaze and sesame crumble.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuRestaurant_AppeScallop.png" alt="Brown Butter Scallops" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Brown Butter Scallops</span>
+                                        <span class="item-price">$24.00</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Hokkaido scallops seared in burnt butter, finished with lemon thyme.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuRestaurant_AppeShroom.png" alt="Shimeji Mushroom Toast" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Shimeji Mushroom Toast</span>
+                                        <span class="item-price">$17.00</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Sautéed shimeji mushrooms on toasted sourdough with miso cream.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuRestaurant_AppeBrussels.png" alt="Honey Soy Brussel Chips" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Honey Soy Brussel Chips</span>
+                                        <span class="item-price">$15.00</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Crispy brussels tossed in honey-soy reduction and chilli flakes.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuRestaurant_AppeHummus.png" alt="Truffle Hummus" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Truffle Hummus</span>
+                                        <span class="item-price">$16.00</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Hummus infused with truffle oil, served with toasted pita and sea salt flakes.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-category">
+                        <h2 class="menu-header">
+                            <span class="diamond restaurant hollow"></span>
+                            <span class="category-text">MAINS</span>
+                            <span class="diamond restaurant hollow"></span>
+                            <span class="restaurant line"></span>
+                            <span class="diamond restaurant filled"></span>
+                        </h2>
+                        <div class="menu-grid">
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuRestaurant_MainBeef.png" alt="Charcoal Angus Striploin (200g)" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Charcoal Angus Striploin (200g)</span>
+                                        <span class="item-price">$42.00</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Flame-grilled Angus beef with roasted garlic butter, grilled asparagus and truffle mash.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuRestaurant_MainFish.png" alt="Barramundi with Yuzu Beurre Blanc" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Barramundi with Yuzu Beurre Blanc</span>
+                                        <span class="item-price">$34.00</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Pan-seared barramundi with citrus butter sauce and roasted baby vegetables.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuRestaurant_MainLamb.png" alt="Honey-Glazed Lamb Ribs" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Honey-Glazed Lamb Ribs</span>
+                                        <span class="item-price">$38.00</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Lamb ribs slow-cooked till yielding, brushed with honey and thyme, and served with charred leek.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuRestaurant_MainCauli.png" alt="Roasted Cauliflower Steak with Truffle Cream" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Roasted Cauliflower Steak with Truffle Cream</span>
+                                        <span class="item-price">$29.00</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Cauliflower grilled over open flame, brushed with truffle cream, finished with shaved parmesan and herbs.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-category">
+                        <h2 class="menu-header">
+                            <span class="diamond restaurant hollow"></span>
+                            <span class="category-text">DESSERTS</span>
+                            <span class="diamond restaurant hollow"></span>
+                            <span class="restaurant line"></span>
+                            <span class="diamond restaurant filled"></span>
+                        </h2>
+                        <div class="menu-grid">
+                            <div class="menu-item">
+                                <img src="css/imgs/RestaurantMenu_DessertListing_Tiramisu.png" alt="Tiramisu" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Tiramisu</span>
+                                        <span class="item-price">$12.80</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Savoiardi soaked in espresso and coffee liqueur, layered with light mascarpone, and cocoa powder for a perfectly bittersweet finish.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/RestaurantMenu_DessertBanana.png" alt="Banana Praline Tart" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Banana Praline Tart</span>
+                                        <span class="item-price">$10.50</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Roasted hazelnut praline, dark chocolate ganache, and caramelised banana.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/RestaurantMenu_DessertPear.png" alt="Poached Pear Tart" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Poached Pear Tart</span>
+                                        <span class="item-price">$10.00</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Slow-cooked pear glazed in amber caramel, resting on a light cream-custard tart.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-category">
+                        <h2 class="menu-header">
+                            <span class="diamond restaurant hollow"></span>
+                            <span class="category-text">DRINKS</span>
+                            <span class="diamond restaurant hollow"></span>
+                            <span class="restaurant line"></span>
+                            <span class="diamond restaurant filled"></span>
+                        </h2>
+                        <div class="menu-grid">
+                            <div class="menu-item">
+                                <img src="css/imgs/Menu_DrinkEmberColdBrew.png" alt="Ember Cold Brew" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Ember Cold Brew</span>
+                                        <span class="item-price">$9.00</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>House cold brew with burnt caramel and vanilla undertones.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuRestaurant_DrinkTonic.png" alt="Verdant Tonic" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Verdant Tonic</span>
+                                        <span class="item-price">$10.00</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Cucumber, lime, and rosemary topped with soda.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuRestaurant_DrinkSparkMatcha.png" alt="Matcha Yuzu Fizz" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Matcha Yuzu Fizz</span>
+                                        <span class="item-price">$11.00</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Sparkling matcha with house-made yuzu jam.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuRestaurant_DrinkCoffeeAlc.png" alt="Midnight Bloom" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Midnight Bloom</span>
+                                        <span class="item-price">$22.00</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Espresso, coffee liqueur, and red wine reduction, stirred over ice with a hint of cinnamon.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="css/imgs/MenuRestaurant_DrinkOrange.png" alt="Blood Orange Spritz" class="menu-img" />
+                                <div class="menu-info">
+                                    <div class="menu-row1">
+                                        <span class="item-name">Blood Orange Spritz</span>
+                                        <span class="item-price">$12.00</span>
+                                    </div>
+                                    <div class="menu-row2">
+                                        <p>Blood orange, elderflower, and sparkling wine.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
         <!-- Circular transition overlay -->
         <div class="circle-transition"></div>
-    </section>
-
-    <!-- Special text -->
-    <section class="special-text">
-    <div class="special-container">
-        <!-- Left Column: Text -->
-        <div class="special-left">
-            <div class="special-row row1">
-                <p>Fresh lunches made for busy schedules.</p>
-            </div>
-            <div class="special-row row2">
-                <p>Preorder, collect, enjoy.</p>
-            </div>
-            <div class="special-row row3">
-                <p><strong>Why Preorder?</strong></p>
-                <ul>
-                    <li>Preorder now to guarantee your favourites.</li>
-                    <li>Save up to 30 minutes of waiting time — skip the queue and the crowd.</li>
-                    <li>Preorder to-go or reserve a table and have it in-store.</li>
-                </ul>
-                <p>
-                    <br>Preorder opens: &nbsp;<strong>8:00 – 11:00</strong><br>Ready for collection: &nbsp;<strong>11:45 – 14:30</strong>
-                </p>
-            </div>
-            <div class="special-row row4">
-                <button>Preorder Now</button>
-            </div>
-        </div>
-
-        <!-- Right Column: Image -->
-        <div class="special-right">
-            <img src="css/imgs/CafeMenu_Preorder.png" alt="Cafe Menu Preorder Image">
-        </div>
-    </div>
-    </section>
-
-    <!-- Menu Section -->
-    <section class="menu-content">
-        <div class="menu-list cafe active">
-            <div class="menu-category">
-                <h2 class="menu-header">
-                    <span class="diamond hollow"></span>
-                    <span class="category-text">BEVERAGES</span>
-                    <span class="diamond hollow"></span>
-                    <span class="line"></span>
-                    <span class="diamond filled"></span>
-                </h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <img src="css/imgs/Menu_DrinkEmberColdBrew.png" alt="Ember Cold Brew" class="menu-img" />
-                        <div class="menu-info">
-                            <div class="menu-row1">
-                                <span class="item-name">Ember Cold Brew</span>
-                                <span class="item-price">$9.00</span>
-                            </div>
-                            <div class="menu-row2">
-                                <p>House cold brew with burnt caramel and vanilla undertones.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="css/imgs/MenuCafe_DrinkEspresso.png" alt="Espresso" class="menu-img" />
-                        <div class="menu-info">
-                            <div class="menu-row1">
-                                <span class="item-name">Espresso</span>
-                                <span class="item-price">$4.50</span>
-                            </div>
-                            <div class="menu-row2">
-                                <p>Full-bodied and aromatic. Pure focus in a cup.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="css/imgs/MenuCafe_DrinkLatte.png" alt="Latte" class="menu-img" />
-                        <div class="menu-info">
-                            <div class="menu-row1">
-                                <span class="item-name">Latte (Hot / Iced)</span>
-                                <span class="item-price">$6.00 / 6.50</span>
-                            </div>
-                            <div class="menu-row2">
-                                <p>Smooth espresso mellowed with creamy steamed milk.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="css/imgs/MenuCafe_DrinkCappuccino.png" alt="Cappuccino" class="menu-img" />
-                        <div class="menu-info">
-                            <div class="menu-row1">
-                                <span class="item-name">Cappuccino</span>
-                                <span class="item-price">$6.00</span>
-                            </div>
-                            <div class="menu-row2">
-                                <p>Rich espresso topped with velvety foam and cocoa dusting.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="css/imgs/MenuCafe_DrinkDirty.png" alt="Dirty Chilled" class="menu-img" />
-                        <div class="menu-info">
-                            <div class="menu-row1">
-                                <span class="item-name">Dirty (Chilled)</span>
-                                <span class="item-price">$6.50</span>
-                            </div>
-                            <div class="menu-row2">
-                                <p>Espresso poured over cold milk for a bold, layered sip.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="css/imgs/MenuCafe_DrinkMatcha.png" alt="Matcha Latte" class="menu-img" />
-                        <div class="menu-info">
-                            <div class="menu-row1">
-                                <span class="item-name">Matcha Latte<br>(Hot / Iced)</span>
-                                <span class="item-price">$6.50 / 7.00</span>
-                            </div>
-                            <div class="menu-row2">
-                                <p>Ceremonial matcha mellowed with creamy steamed milk.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="css/imgs/MenuCafe_DrinkMango.png" alt="Mango Passionfruit Tea" class="menu-img" />
-                        <div class="menu-info">
-                            <div class="menu-row1">
-                                <span class="item-name">Mango Passionfruit Tea<br>(Hot / Iced)</span>
-                                <span class="item-price">$6.00 / 6.50</span>
-                            </div>
-                            <div class="menu-row2">
-                                <p>Tropical fruit tea with floral honey sweetness.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="menu-category">
-                <h2 class="menu-header">
-                    <span class="diamond hollow"></span>
-                    <span class="category-text">BITES</span>
-                    <span class="diamond hollow"></span>
-                    <span class="line"></span>
-                    <span class="diamond filled"></span>
-                </h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <img src="css/imgs/MenuCafe_SideTater.png" alt="Mentaiko Tater Tots" class="menu-img" />
-                        <div class="menu-info">
-                            <div class="menu-row1">
-                                <span class="item-name">Mentaiko Tater Tots</span>
-                                <span class="item-price">$9.90</span>
-                            </div>
-                            <div class="menu-row2">
-                                <p>Tater tots coated in creamy mentaiko and parmesan shavings.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="css/imgs/MenuCafe_SideChix.png" alt="Crispy Chicken Chunks" class="menu-img" />
-                        <div class="menu-info">
-                            <div class="menu-row1">
-                                <span class="item-name">Crispy Chicken Chunks</span>
-                                <span class="item-price">$10.90</span>
-                            </div>
-                            <div class="menu-row2">
-                                <p>Golden-battered chicken bites with house dip. (Ranch / Mentaiko)</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="css/imgs/MenuCafe_SideSalad.png" alt="Garden Salad" class="menu-img" />
-                        <div class="menu-info">
-                            <div class="menu-row1">
-                                <span class="item-name">Garden Salad</span>
-                                <span class="item-price">$7.90</span>
-                            </div>
-                            <div class="menu-row2">
-                                <p>Seasonal greens, cherry tomatoes, croutons, dressing and parmesan shavings.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="menu-category">
-                <h2 class="menu-header">
-                    <span class="diamond hollow"></span>
-                    <span class="category-text">MAINS</span>
-                    <span class="diamond hollow"></span>
-                    <span class="line"></span>
-                    <span class="diamond filled"></span>
-                </h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <img src="css/imgs/MenuCafe_DrinkEspresso.png" alt="Espresso" class="menu-img" />
-                        <div class="menu-info">
-                            <div class="menu-row1">
-                                <span class="item-name">Espresso</span>
-                                <span class="item-price">$4.50</span>
-                            </div>
-                            <div class="menu-row2">
-                                <p>Full-bodied and aromatic. Pure focus in a cup.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="css/imgs/MenuCafe_DrinkEspresso.png" alt="Espresso" class="menu-img" />
-                        <div class="menu-info">
-                            <div class="menu-row1">
-                                <span class="item-name">Espresso</span>
-                                <span class="item-price">$4.50</span>
-                            </div>
-                            <div class="menu-row2">
-                                <p>Full-bodied and aromatic. Pure focus in a cup.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="css/imgs/MenuCafe_DrinkEspresso.png" alt="Espresso" class="menu-img" />
-                        <div class="menu-info">
-                            <div class="menu-row1">
-                                <span class="item-name">Espresso</span>
-                                <span class="item-price">$4.50</span>
-                            </div>
-                            <div class="menu-row2">
-                                <p>Full-bodied and aromatic. Pure focus in a cup.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="css/imgs/MenuCafe_DrinkEspresso.png" alt="Espresso" class="menu-img" />
-                        <div class="menu-info">
-                            <div class="menu-row1">
-                                <span class="item-name">Espresso</span>
-                                <span class="item-price">$4.50</span>
-                            </div>
-                            <div class="menu-row2">
-                                <p>Full-bodied and aromatic. Pure focus in a cup.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="css/imgs/MenuCafe_DrinkEspresso.png" alt="Espresso" class="menu-img" />
-                        <div class="menu-info">
-                            <div class="menu-row1">
-                                <span class="item-name">Espresso</span>
-                                <span class="item-price">$4.50</span>
-                            </div>
-                            <div class="menu-row2">
-                                <p>Full-bodied and aromatic. Pure focus in a cup.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="css/imgs/MenuCafe_DrinkEspresso.png" alt="Espresso" class="menu-img" />
-                        <div class="menu-info">
-                            <div class="menu-row1">
-                                <span class="item-name">Espresso</span>
-                                <span class="item-price">$4.50</span>
-                            </div>
-                            <div class="menu-row2">
-                                <p>Full-bodied and aromatic. Pure focus in a cup.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="menu-category">
-                <h2 class="menu-header">
-                    <span class="diamond hollow"></span>
-                    <span class="category-text">BAKES</span>
-                    <span class="diamond hollow"></span>
-                    <span class="line"></span>
-                    <span class="diamond filled"></span>
-                </h2>
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <img src="css/imgs/MenuCafe_DrinkEspresso.png" alt="Espresso" class="menu-img" />
-                        <div class="menu-info">
-                            <div class="menu-row1">
-                                <span class="item-name">Espresso</span>
-                                <span class="item-price">$4.50</span>
-                            </div>
-                            <div class="menu-row2">
-                                <p>Full-bodied and aromatic. Pure focus in a cup.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="css/imgs/MenuCafe_DrinkEspresso.png" alt="Espresso" class="menu-img" />
-                        <div class="menu-info">
-                            <div class="menu-row1">
-                                <span class="item-name">Espresso</span>
-                                <span class="item-price">$4.50</span>
-                            </div>
-                            <div class="menu-row2">
-                                <p>Full-bodied and aromatic. Pure focus in a cup.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="css/imgs/MenuCafe_DrinkEspresso.png" alt="Espresso" class="menu-img" />
-                        <div class="menu-info">
-                            <div class="menu-row1">
-                                <span class="item-name">Espresso</span>
-                                <span class="item-price">$4.50</span>
-                            </div>
-                            <div class="menu-row2">
-                                <p>Full-bodied and aromatic. Pure focus in a cup.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="css/imgs/MenuCafe_DrinkEspresso.png" alt="Espresso" class="menu-img" />
-                        <div class="menu-info">
-                            <div class="menu-row1">
-                                <span class="item-name">Espresso</span>
-                                <span class="item-price">$4.50</span>
-                            </div>
-                            <div class="menu-row2">
-                                <p>Full-bodied and aromatic. Pure focus in a cup.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="menu-list restaurant">
-        <!-- restaurant menu items -->
-        </div>
     </section>
 
     <footer class="footer-section">
@@ -440,43 +779,53 @@
         </div>
     </footer>
 
-    <!-- JavaScript for menu toggle and animations -->
-    <script>
-        const menuButtons = document.querySelectorAll('.menu-btn');
-        const circle = document.querySelector('.circle-transition');
-        const banners = document.querySelectorAll('.banner-img');
-        const specials = document.querySelectorAll('.special-content');
-        const menus = document.querySelectorAll('.menu-list');
+<!-- JavaScript for menu toggle and animations -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const btns = Array.from(document.querySelectorAll('.menu-btn'));
+    const groups = Array.from(document.querySelectorAll('.menu-group'));
+    const lists = Array.from(document.querySelectorAll('.menu-list'));
+    const banners = Array.from(document.querySelectorAll('.banner-img')); // if present
+    const dividers = Array.from(document.querySelectorAll('.nav-divider')); // if present
 
-        menuButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const target = btn.dataset.menu;
-
-                if (btn.classList.contains('active')) return; // prevent re-triggering
-
-                // Toggle active button
-                menuButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                // Trigger circle expansion
-                circle.classList.add('active');
-
-                // After animation fills screen, switch content
-                setTimeout(() => {
-                banners.forEach(b => b.classList.remove('active'));
-                specials.forEach(s => s.classList.remove('active'));
-                menus.forEach(m => m.classList.remove('active'));
-
-                document.querySelector(`.banner-img.${target}`).classList.add('active');
-                document.querySelector(`.special-content.${target}`).classList.add('active');
-                document.querySelector(`.menu-list.${target}`).classList.add('active');
-                }, 500);
-
-                // Shrink circle back
-                setTimeout(() => {
-                circle.classList.remove('active');
-                }, 1000);
-            });
+    function activate(name) {
+        // show only the chosen group
+        groups.forEach(g => g.classList.toggle('active', g.classList.contains(name)));
+        // show only the chosen menu-list (some CSS also relies on .menu-list.active)
+        lists.forEach(l => l.classList.toggle('active', l.classList.contains(name)));
+        // banners inside groups (if you use .banner-img)
+        banners.forEach(b => b.classList.toggle('active', b.classList.contains(name)));
+        // nav divider inside the active group (restaurant uses light color)
+        dividers.forEach(nd => {
+        const pg = nd.closest('.menu-group');
+        nd.classList.toggle('active', pg && pg.classList.contains(name) && pg.classList.contains('restaurant'));
         });
-    </script>
+
+        // update buttons: set active class + disable the active one
+        btns.forEach(b => {
+        const isTarget = b.dataset.menu === name;
+        b.classList.toggle('active', isTarget);
+        b.disabled = isTarget;
+        });
+    }
+
+    // initialize from whatever is currently present in markup (fallback to cafe)
+    const initial = groups.find(g => g.classList.contains('active')) || document.querySelector('.menu-group.cafe') || groups[0];
+    if (initial) {
+        const name = initial.classList.contains('restaurant') ? 'restaurant' : 'cafe';
+        activate(name);
+    }
+
+    // wire click handlers
+    btns.forEach(b => {
+        b.addEventListener('click', (e) => {
+        if (b.disabled) return; // already active
+        const target = b.dataset.menu;
+        if (!target) return;
+        activate(target);
+        });
+    });
+    });
+</script>
 </body>
+</html>
