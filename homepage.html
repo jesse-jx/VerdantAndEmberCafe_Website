@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verdant & Ember Homepage</title>
+    <link rel="icon" type="image/x-icon" href="css/imgs/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&family=Lato:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -110,7 +111,7 @@
         <!-- Popup content -->
         <div class="popup-content">
             <!-- Row 1: Title -->
-            <h3 class="popup-title">Check Reservation Availability</h3>
+            <h3 class="popup-title">Plan Your Next Memory With Us!</h3>
 
             <!-- Row 2: Line with diamonds -->
             <div class="popup-line">
@@ -155,7 +156,10 @@
 
                 <!-- Row 5: Button -->
                 <div class="popup-row popup-row-button">
-                    <button class="outline-btn">Check Now!</button>
+                    <button class="outline-btn">Reserve Now!</button>
+                </div>
+                <div class="popup-row popup-row-button">
+                    
                 </div>
             </div>
         </div>
@@ -175,8 +179,9 @@
                 <div class="concept-row text-row text-row-indent">
                     <h2><span class="highlight-cafe">CAFE</span> by day,<br><br>&emsp;&emsp;<span class="highlight-restaurant">RESTAURANT</span> by night.</h2>
                     <p><br>
-                    Through considered material choices and intentional design, our concept
-                    invites reflection and sensory calm.
+                    Welcome to <strong>Verdant & Ember</strong> — thoughtful food, warm service, and time well spent.<br>
+                    Preorder ahead or join our members for exclusive menu tastings — because good meals are meant to be shared.<br>
+                    Verdant & Ember isn’t just a place to dine. It’s where good meals meet better company.
                     </p>
                 </div>
 
@@ -187,8 +192,8 @@
                     </div>
                     <div class="text-subcol">
                         <p class="bold-row"><br><br>OPENING HOURS</p>
-                        <p>Cafe: Mon - Thu</p>
-                        <p class = "row-3">Cafe: Fri - Sun<br>Restaurant: Fri - Sun</p>
+                        <p><span style="font-size: 85%;"><strong>Cafe:</strong></span>&nbsp; Mon - Thu, 8am - 7pm</p>
+                        <p class = "row-3"><span style="font-size: 85%;"><strong>Cafe:</strong></span>&nbsp; Fri - Sun, 8am - 5pm<br><span style="font-size: 85%;"><strong>Resturant:</strong></span> &nbsp;Fri - Sun, 7pm - 11pm</p>
                         <p class="bold-row">LOCATION</p>
                         <p>189 Joo Chiat Rd, Singapore 427460</p>
                     </div>
@@ -752,78 +757,75 @@
 <!-- Socials Scroll Buttons Script -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const container = document.querySelector('.socials-posts-wrapper');
-        const postsContainer = document.querySelector('.socials-posts');
-        const posts = Array.from(document.querySelectorAll('.social-post-card'));
+        const wrapper = document.querySelector('.socials-posts-wrapper');
+        const container = document.querySelector('.socials-posts');
+        const posts = Array.from(container.children);
         const leftBtn = document.querySelector('.left-btn');
         const rightBtn = document.querySelector('.right-btn');
 
-        const gap = parseInt(getComputedStyle(posts[0]).marginRight) || 75;
         const cardWidth = posts[0].offsetWidth;
+        const gap = parseInt(getComputedStyle(container).gap) || 75;
         const step = cardWidth + gap;
+        const visibleCount = 5; // number of visible cards
+        const total = posts.length;
 
-        // Clone posts to both ends for seamless looping
+        // --- Clone posts to both ends for seamless looping ---
         posts.forEach(post => {
             const cloneStart = post.cloneNode(true);
             const cloneEnd = post.cloneNode(true);
-            postsContainer.appendChild(cloneEnd);
-            postsContainer.insertBefore(cloneStart, postsContainer.firstChild);
+            container.appendChild(cloneEnd);
+            container.insertBefore(cloneStart, container.firstChild);
         });
 
-        const totalPosts = posts.length;
-        let index = totalPosts; // start at first real post
+        const clones = container.children.length;
+        let index = total; // start at first real post
+        const wrapperCenter = wrapper.offsetWidth / 2;
 
-        const wrapperCenter = container.offsetWidth / 2;
-
-        // Position container
-        const update = (instant = false) => {
-            if (instant) postsContainer.style.transition = 'none';
-            const translateX = wrapperCenter - cardWidth / 2 - index * step;
-            postsContainer.style.transform = `translateX(${translateX}px)`;
-            if (instant) postsContainer.offsetHeight; // force reflow
-            postsContainer.style.transition = 'transform 0.5s ease';
+        // --- Function to update transform position ---
+        const updatePosition = (instant = false) => {
+            if (instant) container.style.transition = 'none';
+            // Align the *center group* of 5 cards properly
+            const translateX = wrapperCenter - ((visibleCount * step) / 2) + (gap / 2) - (index * step);
+            container.style.transform = `translateX(${translateX}px)`;
+            if (instant) container.offsetHeight; // force reflow
+            container.style.transition = 'transform 0.6s ease';
         };
-        update(true);
 
-        // Buttons
-        rightBtn.addEventListener('click', () => { index++; update(); });
-        leftBtn.addEventListener('click', () => { index--; update(); });
+        updatePosition(true);
 
-        // Infinite loop logic
-        postsContainer.addEventListener('transitionend', () => {
-            if (index >= totalPosts * 2) {
-                index = totalPosts;
-                update(true);
-            } else if (index < totalPosts) {
-                index = totalPosts * 2 - 1;
-                update(true);
+        // --- Navigation buttons ---
+        rightBtn.addEventListener('click', () => {
+            index++;
+            updatePosition();
+        });
+
+        leftBtn.addEventListener('click', () => {
+            index--;
+            updatePosition();
+        });
+
+        // --- Infinite wrapping logic ---
+        container.addEventListener('transitionend', () => {
+            if (index >= total * 2) {
+                index = total;
+                updatePosition(true);
+            } else if (index < total) {
+                index = total * 2 - 1;
+                updatePosition(true);
             }
         });
 
-        // Drag support
-        let isDown = false, startX, startIndex;
-        postsContainer.addEventListener('mousedown', e => {
-            isDown = true;
-            startX = e.pageX;
-            startIndex = index;
-            postsContainer.style.cursor = 'grabbing';
-        });
-        window.addEventListener('mouseup', () => { isDown = false; postsContainer.style.cursor = 'grab'; });
-        window.addEventListener('mousemove', e => {
-            if (!isDown) return;
-            const walk = e.pageX - startX;
-            index = startIndex - walk / step;
-            update();
-        });
-
-        // Touch events
-        postsContainer.addEventListener('touchstart', e => { isDown = true; startX = e.touches[0].pageX; startIndex = index; });
-        window.addEventListener('touchend', () => { isDown = false; });
-        window.addEventListener('touchmove', e => {
-            if (!isDown) return;
-            const walk = e.touches[0].pageX - startX;
-            index = startIndex - walk / step;
-            update();
+        // --- Adjust button positioning dynamically ---
+        const adjustButtons = () => {
+            const sectionWidth = wrapper.offsetWidth;
+            const offset = sectionWidth / 2 - ((visibleCount * step) / 2) - 80; // left/right spacing
+            leftBtn.style.left = `${offset}px`;
+            rightBtn.style.right = `${offset}px`;
+        };
+        adjustButtons();
+        window.addEventListener('resize', () => {
+            updatePosition(true);
+            adjustButtons();
         });
     });
 </script>

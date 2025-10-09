@@ -32,7 +32,7 @@ body::-webkit-scrollbar {
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 155px;
+  height: 83px;
   background: linear-gradient(to top, rgba(71, 50, 40, 1) 0%, rgba(59, 47, 47, 0) 100%);
   z-index: 2;
 }
@@ -179,8 +179,7 @@ body::-webkit-scrollbar {
   flex-direction: column;
   align-items: center;
   justify-content: center; /* centers the stack vertically in its column */
-  gap: 20px; /* adds clean, consistent spacing between circles */
-  padding-top: 135px;
+  gap: 12px; /* adds clean, consistent spacing between circles */
   position: relative;
   z-index: 1;
 }
@@ -214,10 +213,10 @@ body::-webkit-scrollbar {
 }
 .circle-outline {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    align-items: center;
+    justify-content: center;
+    width: 112%;
+    height: 112%;
     transform: rotate(-90deg); /* start animation from top */
 
 }
@@ -227,6 +226,7 @@ body::-webkit-scrollbar {
     stroke:#2E2E2E
 }
 .col.main-img img {
+    padding-top: 70px;
     transition: transform 0.3s ease; /* used in JS, keep here for safety */
     transform-origin: center center;   /* scale from center */
 }
@@ -245,7 +245,7 @@ body::-webkit-scrollbar {
   flex-direction: column;
   justify-content: flex-start;   /* aligns all items to top */
   align-items: flex-start;       /* left-aligns all items */
-  padding-top: 80px;             /* space from top */
+  padding-top: 110px;             /* space from top */
   gap: 16px;                      /* default vertical spacing between elements */
 }
 .details h2 {
@@ -273,7 +273,7 @@ body::-webkit-scrollbar {
   gap: 20px;
   position: absolute;    
   right: 0;              
-  bottom: 200px;
+  bottom: 20px;
   z-index: 5;            
 }
 .details-buttons .outline-btn {
@@ -384,6 +384,8 @@ body::-webkit-scrollbar {
 .popup-title {
     font-family: 'Playfair Display', serif;
     margin: 0;
+    margin-bottom: -10px;
+    padding-top: 10px; 
     font-size: 20px; /* lower height by reducing font */
     line-height: 16px;
     text-align: center;
@@ -513,7 +515,7 @@ body::-webkit-scrollbar {
 
 /* First column (image) */
 .image-column {
-  width: 469px;
+  width: 480px;
 }
 
 .concept-main-img {
@@ -529,13 +531,12 @@ body::-webkit-scrollbar {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  letter-spacing: 1px;
 }
 
 .text-row-indent {
-  margin-left: 40px;  /* adjust as needed */
+  margin-left: 30px;  /* adjust as needed */
 }
-
-/* Optional: keep text alignment consistent */
 .text-row h2 {
   font-family: 'Playfair Display', serif;
   color: #3B2F2F;
@@ -544,15 +545,12 @@ body::-webkit-scrollbar {
   margin-bottom: 12px;
   line-height: 1;
 }
-
 .highlight-cafe {
-  color: #92A079; /* Your gold accent color */
+  color: #92A079
 }
-
 .highlight-restaurant {
-  color: #66302E; /* Your gold accent color */
+  color: #66302E;
 }
-
 .text-row p {
   font-family: 'Lato', sans-serif;
   color: #2E2E2E;
@@ -567,19 +565,14 @@ body::-webkit-scrollbar {
   gap: 25px;
   margin-top: 20px;
 }
-
-/* Image in the 4th row */
 .image-subcol {
-  width: 291px;
+  width: 287px;
 }
-
 .concept-detail-img {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
-
-/* Text sub-column */
 .text-subcol p {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
@@ -588,13 +581,12 @@ body::-webkit-scrollbar {
   font-weight: 400;
   word-wrap: break-word;
 }
-
-/* Bolded text */
 .text-subcol .bold-row {
   font-weight: bolder;
   text-transform: uppercase;
+  text-decoration: underline;
+  letter-spacing: 1.4px;
 }
-
 .text-subcol .row-3 {
   margin-bottom: 25px;  /* Adjust spacing after restaurant info */
 }
@@ -988,11 +980,11 @@ body::-webkit-scrollbar {
 }
 
 .left-btn {
-    left: 1700px; /* distance from left edge of screen */
+    margin-left: 200px; /* distance from left edge of screen */
 }
 
 .right-btn {
-    right: 1700px; /* distance from right edge of screen */
+    margin-right: 200px; /* distance from right edge of screen */
 }
 
 /* Row 3: Social Icons */
@@ -1103,7 +1095,7 @@ body::-webkit-scrollbar {
 
 .menu-NavBar {
     position: relative;
-    background-color: #92A079;
+    background-color: #ECE6DB;
     width: auto;
     height: 134px;
     overflow: hidden;
@@ -1429,7 +1421,7 @@ body::-webkit-scrollbar {
 
 /* Café Menu Section */
 .menu-list.cafe {
-  background-color: #92A079; 
+  background-color: #ECE6DB; 
   padding: 80px 100px;
   display: flex;
   flex-direction: column;
@@ -1559,7 +1551,7 @@ body::-webkit-scrollbar {
   overflow-wrap: break-word;
 }
 
-/*SHOP - PRODUCTS NAVBAR, SHOP NAVBAR*/
+/*PRODUCTS NAVBAR, SHOP NAVBAR*/
 .products-navbar {
   width: 100%;
   height: 224px;
@@ -1576,7 +1568,7 @@ body::-webkit-scrollbar {
   font-family: 'Lato', sans-serif;
 }
 
-/* SHOP - BREADCRUMB */
+/* SHOP BREADCRUMB */
 .breadcrumb {
   display: flex;
   align-items: center;
@@ -1641,7 +1633,7 @@ body::-webkit-scrollbar {
   font-size: 16px;
 }
 
-/* SHOP - POSITION OF FILTER + CART ICONS */
+/* POSITION OF FILTER + CART ICONS */
 .filter-btn, .cart-btn {
   color: #2E2E2E;
   font-size: 18px;
