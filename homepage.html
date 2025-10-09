@@ -757,78 +757,75 @@
 <!-- Socials Scroll Buttons Script -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const container = document.querySelector('.socials-posts-wrapper');
-        const postsContainer = document.querySelector('.socials-posts');
-        const posts = Array.from(document.querySelectorAll('.social-post-card'));
+        const wrapper = document.querySelector('.socials-posts-wrapper');
+        const container = document.querySelector('.socials-posts');
+        const posts = Array.from(container.children);
         const leftBtn = document.querySelector('.left-btn');
         const rightBtn = document.querySelector('.right-btn');
 
-        const gap = parseInt(getComputedStyle(posts[0]).marginRight) || 75;
         const cardWidth = posts[0].offsetWidth;
+        const gap = parseInt(getComputedStyle(container).gap) || 75;
         const step = cardWidth + gap;
+        const visibleCount = 5; // number of visible cards
+        const total = posts.length;
 
-        // Clone posts to both ends for seamless looping
+        // --- Clone posts to both ends for seamless looping ---
         posts.forEach(post => {
             const cloneStart = post.cloneNode(true);
             const cloneEnd = post.cloneNode(true);
-            postsContainer.appendChild(cloneEnd);
-            postsContainer.insertBefore(cloneStart, postsContainer.firstChild);
+            container.appendChild(cloneEnd);
+            container.insertBefore(cloneStart, container.firstChild);
         });
 
-        const totalPosts = posts.length;
-        let index = totalPosts; // start at first real post
+        const clones = container.children.length;
+        let index = total; // start at first real post
+        const wrapperCenter = wrapper.offsetWidth / 2;
 
-        const wrapperCenter = container.offsetWidth / 2;
-
-        // Position container
-        const update = (instant = false) => {
-            if (instant) postsContainer.style.transition = 'none';
-            const translateX = wrapperCenter - cardWidth / 2 - index * step;
-            postsContainer.style.transform = `translateX(${translateX}px)`;
-            if (instant) postsContainer.offsetHeight; // force reflow
-            postsContainer.style.transition = 'transform 0.5s ease';
+        // --- Function to update transform position ---
+        const updatePosition = (instant = false) => {
+            if (instant) container.style.transition = 'none';
+            // Align the *center group* of 5 cards properly
+            const translateX = wrapperCenter - ((visibleCount * step) / 2) + (gap / 2) - (index * step);
+            container.style.transform = `translateX(${translateX}px)`;
+            if (instant) container.offsetHeight; // force reflow
+            container.style.transition = 'transform 0.6s ease';
         };
-        update(true);
 
-        // Buttons
-        rightBtn.addEventListener('click', () => { index++; update(); });
-        leftBtn.addEventListener('click', () => { index--; update(); });
+        updatePosition(true);
 
-        // Infinite loop logic
-        postsContainer.addEventListener('transitionend', () => {
-            if (index >= totalPosts * 2) {
-                index = totalPosts;
-                update(true);
-            } else if (index < totalPosts) {
-                index = totalPosts * 2 - 1;
-                update(true);
+        // --- Navigation buttons ---
+        rightBtn.addEventListener('click', () => {
+            index++;
+            updatePosition();
+        });
+
+        leftBtn.addEventListener('click', () => {
+            index--;
+            updatePosition();
+        });
+
+        // --- Infinite wrapping logic ---
+        container.addEventListener('transitionend', () => {
+            if (index >= total * 2) {
+                index = total;
+                updatePosition(true);
+            } else if (index < total) {
+                index = total * 2 - 1;
+                updatePosition(true);
             }
         });
 
-        // Drag support
-        let isDown = false, startX, startIndex;
-        postsContainer.addEventListener('mousedown', e => {
-            isDown = true;
-            startX = e.pageX;
-            startIndex = index;
-            postsContainer.style.cursor = 'grabbing';
-        });
-        window.addEventListener('mouseup', () => { isDown = false; postsContainer.style.cursor = 'grab'; });
-        window.addEventListener('mousemove', e => {
-            if (!isDown) return;
-            const walk = e.pageX - startX;
-            index = startIndex - walk / step;
-            update();
-        });
-
-        // Touch events
-        postsContainer.addEventListener('touchstart', e => { isDown = true; startX = e.touches[0].pageX; startIndex = index; });
-        window.addEventListener('touchend', () => { isDown = false; });
-        window.addEventListener('touchmove', e => {
-            if (!isDown) return;
-            const walk = e.touches[0].pageX - startX;
-            index = startIndex - walk / step;
-            update();
+        // --- Adjust button positioning dynamically ---
+        const adjustButtons = () => {
+            const sectionWidth = wrapper.offsetWidth;
+            const offset = sectionWidth / 2 - ((visibleCount * step) / 2) - 80; // left/right spacing
+            leftBtn.style.left = `${offset}px`;
+            rightBtn.style.right = `${offset}px`;
+        };
+        adjustButtons();
+        window.addEventListener('resize', () => {
+            updatePosition(true);
+            adjustButtons();
         });
     });
 </script>

@@ -537,8 +537,6 @@ body::-webkit-scrollbar {
 .text-row-indent {
   margin-left: 30px;  /* adjust as needed */
 }
-
-/* Optional: keep text alignment consistent */
 .text-row h2 {
   font-family: 'Playfair Display', serif;
   color: #3B2F2F;
@@ -547,15 +545,12 @@ body::-webkit-scrollbar {
   margin-bottom: 12px;
   line-height: 1;
 }
-
 .highlight-cafe {
   color: #92A079
 }
-
 .highlight-restaurant {
   color: #66302E;
 }
-
 .text-row p {
   font-family: 'Lato', sans-serif;
   color: #2E2E2E;
@@ -570,19 +565,14 @@ body::-webkit-scrollbar {
   gap: 25px;
   margin-top: 20px;
 }
-
-/* Image in the 4th row */
 .image-subcol {
-  width: 291px;
+  width: 287px;
 }
-
 .concept-detail-img {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
-
-/* Text sub-column */
 .text-subcol p {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
@@ -591,15 +581,12 @@ body::-webkit-scrollbar {
   font-weight: 400;
   word-wrap: break-word;
 }
-
-/* Bolded text */
 .text-subcol .bold-row {
   font-weight: bolder;
   text-transform: uppercase;
   text-decoration: underline;
   letter-spacing: 1.4px;
 }
-
 .text-subcol .row-3 {
   margin-bottom: 25px;  /* Adjust spacing after restaurant info */
 }
@@ -993,11 +980,11 @@ body::-webkit-scrollbar {
 }
 
 .left-btn {
-    left: 1700px; /* distance from left edge of screen */
+    margin-left: 200px; /* distance from left edge of screen */
 }
 
 .right-btn {
-    right: 1700px; /* distance from right edge of screen */
+    margin-right: 200px; /* distance from right edge of screen */
 }
 
 /* Row 3: Social Icons */
