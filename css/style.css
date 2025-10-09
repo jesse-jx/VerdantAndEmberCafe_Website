@@ -504,7 +504,6 @@ body::-webkit-scrollbar {
   justify-content: center;
   align-items: center;
 }
-
 /* Main container: 2 columns */
 .concept-container {
   background-color: #F9F6F1;
@@ -512,19 +511,16 @@ body::-webkit-scrollbar {
   flex-direction: row;
   gap: 43px; /* gap between the 2 main columns */
 }
-
 /* First column (image) */
 .image-column {
   width: 480px;
 }
-
 .concept-main-img {
   width: 100%;
   height: auto; /* adjustable */
   object-fit: cover;
   margin-top: 80px; /* adjust as needed */
 }
-
 /* Second column (text content) */
 .text-column {
   width: 564px;
@@ -533,7 +529,6 @@ body::-webkit-scrollbar {
   justify-content: space-between;
   letter-spacing: 1px;
 }
-
 .text-row-indent {
   margin-left: 30px;  /* adjust as needed */
 }
@@ -557,7 +552,6 @@ body::-webkit-scrollbar {
   font-size: 18px;
   line-height: 1.6;
 }
-
 /* 4th row: image + text columns */
 .image-text-row {
   display: flex;
@@ -603,14 +597,11 @@ body::-webkit-scrollbar {
   display: flex;
   flex-direction: column;
 }
-
-/* Title row */
 .events-title {
   height: 55px;
   display: flex;
   align-items: center;
 }
-
 .events-title h2 {
   font-family: 'Playfair Display', serif;
   font-size: 40px;
@@ -618,8 +609,6 @@ body::-webkit-scrollbar {
   color: #2E2E2E;
   margin: 0;
 }
-
-/* Horizontal scroll container */
 .events-scroll {
   flex: 1;
   display: flex;
@@ -628,21 +617,15 @@ body::-webkit-scrollbar {
   padding-top: 20px;
   cursor: grab; /* user feedback */
 }
-
 .events-scroll:active {
   cursor: grabbing;
 }
-
-/* Hide scrollbar for Webkit browsers (Chrome, Safari) */
 .events-scroll::-webkit-scrollbar {
   display: none;
 }
-
-/* Hide scrollbar for Firefox */
 .events-scroll {
   scrollbar-width: none; /* Firefox */
 }
-
 /* Event cards */
 .event-card {
   flex: 0 0 500px; /* fixed width cards */
@@ -650,15 +633,11 @@ body::-webkit-scrollbar {
   min-height: 630px;
   color: #2E2E2E;
 }
-
-/* Row 1: Image */
 .event-image img {
   width: 100%;
   max-height: 515px;
   object-fit: cover;
 }
-
-/* Row 2: Date + Line */
 .event-date-line {
   display: flex;
   align-items: center;
@@ -667,33 +646,27 @@ body::-webkit-scrollbar {
   gap: 10px;
   position: relative;
 }
-
 .event-date {
   font-family: 'Lato', sans-serif;
   font-size: 20px;
   font-weight: 700;
   white-space: nowrap;
 }
-
-/* Line and diamond container */
 .event-line-container {
   flex: 1;
   display: flex;
   align-items: center;
   position: relative;
 }
-
 .event-line-svg {
   width: 100%;
   height: 4px;
   overflow: visible;
 }
-
 .event-line {
   stroke: #2E2E2E;
   stroke-width: 1.5;
 }
-
 .event-diamond {
   position: absolute;
   right: 1px;
@@ -702,14 +675,11 @@ body::-webkit-scrollbar {
   background-color: #2E2E2E;
   transform: rotate(45deg);
 }
-
-/* Row 3: Event Info */
 .event-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .event-name h3 {
   font-family: 'Playfair Display', serif;
   font-size: 24px;
@@ -720,7 +690,6 @@ body::-webkit-scrollbar {
   word-wrap: break-word;
   margin-top: -7px; 
 }
-
 .event-plus-btn {
   width: 45px;       /* circle width */
   height: 45px;      /* circle height (adjustable) */
@@ -735,8 +704,6 @@ body::-webkit-scrollbar {
   flex-shrink: 0; /* prevent shrinking in flex layouts */
   transition: background-color 0.3s ease;
 }
-
-/* Horizontal line */
 .event-plus-btn::before,
 .event-plus-btn::after {
   content: '';
@@ -745,27 +712,41 @@ body::-webkit-scrollbar {
   border-radius: 1px;
   transition: background-color 0.3s ease;
 }
-
-/* Horizontal line */
 .event-plus-btn::before {
   width: 20px;       /* line length */
   height: 3.5px;     /* line weight */
 }
-
-/* Vertical line */
 .event-plus-btn::after {
   width: 3.5px;      /* line weight */
   height: 20px;      /* line length */
 }
-
-/* Hover effect */
 .event-plus-btn:hover {
   background-color: #66302E;
 }
-
 .event-plus-btn:hover::before,
 .event-plus-btn:hover::after {
   background-color: #ECE6DB;
+}
+.join-events-btn {
+  margin-top: 10px;
+  background-color: #ECE6DB;
+  border: 1.5px solid #2E2E2E;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 0;
+  font-family: 'Lato', sans-serif;
+  font-style: italic;
+  color: #2E2E2E;
+  font-size: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.join-events-btn:hover {
+  border: 1.5px solid #C3A358;
+  color: #C3A358;
+  font-weight: bold;
 }
 
 .events-scroll .event-card img,
