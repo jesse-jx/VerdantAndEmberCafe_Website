@@ -1,0 +1,646 @@
+<section class="products-navbar">
+            <div class="container">
+                <!-- navigation bar -->
+                 <div class="navbar">
+                    <div class="logo-container">
+                        <a href="homepage.html">
+                            <img src="css/imgs/VerdantAndEmberLogo_Dark.png" alt="Verdant & Ember Full Logo" class="logo">
+                        </a>
+                    </div>
+                    <!-- navigation links to other pages-->
+                    <div class="links-container">
+                        <nav class="nav-links">
+                            <a href="menu.html">Menu</a>
+                            <a href="#">About Us</a>
+                            <a href="#">Perks</a>
+                            <a href="shop.html">Shop</a>
+                            <a href="#">Reservations</a>
+                            <img src="css/imgs/NavBar_UserBrown.svg" alt="Account" class="account-icon">
+                        </nav>
+                    </div>
+                 </div>
+
+                 <!-- line with diamond ends -->
+                  <div class="nav-divider">
+                    <span class="diamond left"></span>
+                    <span class="line"></span>
+                    <span class="diamond right"></span>
+                </div>
+
+                <div class="container">
+                    <!-- shop breadcrumb trail from homepage -->
+                     <div class="shop-navbar">
+                        <div class="breadcrumb">
+                            <a href="homepage.html">home</a>
+                            <span>//</span>
+                            <a href="#">shop</a>
+                            <span>//</span>
+                            <a href="#">coffee</a>
+                            <span>//</span>
+                            <a href="#">Morning Ember</a>
+                        </div>
+
+                        <!-- search bar, filter and cart -->
+                        <div class="shop-actions">
+                            <form class="search-form" action="#" method="get">
+                                <input type="text" placeholder="search..." name="search">
+                                <button type="submit" class="search-btn">
+                                    <img src="css/imgs/search_button.svg" alt="Search" class="search-btn">
+                                </button>
+                            </form>
+
+                            <a href="#" class="filter-btn">
+                                <img src="css/imgs/filter_btn.svg" alt="Filter" class="filter-btn">
+                            </a>
+
+                            <a href="#" class="cart-btn">
+                                <img src="css/imgs/cart_btn.png" alt="Cart" class="cart-btn">
+                            </a>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-content">
+            <div class="container">
+                <div class="product-landing">
+                    <div class="product-image">     <!--Left side-->
+                        <div class="product-image-frame">
+                            <img src="css/imgs/V&E_CoffeeBeans.png" alt="Morning Ember — House Coffee Beans" width="331" height="604">
+                        </div>
+                    </div>
+
+                    <div class="product-details">     <!--Right side-->
+                        <!-- Group 1: Name / Price / Review / Description / Qty + Add to cart -->
+                        <div class="product-group product-group-1">
+                            <table class="product-info-table" role="presentation">
+                                <tr>
+                                    <td class="p-title">
+                                        <h1 class="product-name">Morning Ember — House Coffee Beans</h1>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="p-price-review">
+                                        <div class="price">$24.00/250g</div>
+                                        <div class="review">
+                                            <img src="css/imgs/4StarRating.png" alt="4-stars" class="stars" />
+                                            <span class="review-text">(18 customer reviews)</span>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="p-description">
+                                        <p>Roasted in small batches to balance deep cocoa and soft fruit notes. For mornings that begin slow — or nights where conversations never quite end.</p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="p-actions">
+                                        <div class="qty-add">
+                                            <div class="qty-control">
+                                                <button type="button" class="qty-btn" aria-label="decrease">−</button>
+                                                <input type="text" class="qty-input" value="1" aria-label="quantity">
+                                                <button type="button" class="qty-btn" aria-label="increase">+</button>
+                                            </div>
+
+                                            <button class="add-to-cart-btn" type="button">
+                                                <img src="css/imgs/AddToCart_Btn.svg">
+                                                add to cart
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!-- Group 2: Toggle menu (Nutrition / Additional Information / Reviews) -->
+                        <div class="product-group product-group-2">
+                            <nav class="product-toggle">
+                                <ul>
+                                    <li class="toggle-item active">Nutrition</li>
+                                    <li class="toggle-item">Additional Information</li>
+                                    <li class="toggle-item">Reviews</li>
+                                </ul>
+                            </nav>
+
+                            <div class="toggle-divider"></div>
+
+                            <div class="toggle-content">
+                                <img src="css/imgs/NutritionInfo.png" alt="Nutritional facts" width="339px" height="535px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-usage">
+                    <div class="usage-inner">
+                        <div class="usage-header">
+                            <h2 class="usage-title">Used in-house in these menu items</h2>
+                            <div class="usage-line"></div>
+                        </div>
+
+                        <div class="usage-items">
+                            <div class="usage-item">
+                                <img src="css/imgs/Menu_DrinkEmberColdBrew.png" alt="Ember Cold Brew" class="usage-thumb" width="100" height="100">
+                                <div class="usage-copy">
+                                    <div class="usage-name">Ember Cold Brew</div>
+                                    <div class="usage-price">$9.00</div>
+                                    <div class="usage-desc">House cold brew with burnt caramel and vanilla undertones.</div>
+                                </div>
+                            </div>
+
+                            <div class="usage-item">
+                                <img src="css/imgs/MenuCafe_DrinkEspresso.png" alt="Espresso" class="usage-thumb" width="100" height="100">
+                                <div class="usage-copy">
+                                    <div class="usage-name">Espresso</div>
+                                    <div class="usage-price">$4.50</div>
+                                    <div class="usage-desc">Full-bodied and aromatic. Pure focus in a cup.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-recommendations">
+                    <table class="recommendation-table" role="presentation">
+                        <tr>
+                            <td class="rec-cell">
+                                <table class="rec-inner" role="presentation">
+                                    <tr>
+                                        <td class="rec-img">
+                                            <img src="css/imgs/Ember_CoffeeDripper.png" alt="Ember Coffee Dripper" width="283" height="216">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-title">Ember Dripper</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-price">$34.80</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-desc">A sleek glass pour-over designed for clarity and calm.</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-action"><button class="rec-cart" type="button"><img src="css/imgs/AddToCart_Btn.svg" alt="cart plus"></button></td>
+                                    </tr>
+                                </table>
+                            </td>
+
+                            <td class="rec-cell">
+                                <table class="rec-inner" role="presentation">
+                                    <tr>
+                                        <td class="rec-img">
+                                            <img src="css/imgs/Verdant_GooseneckKettle.png" alt="Verdant Gooseneck Kettle" width="319" height="319">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-title">Verdant Kettle — Gooseneck Edition</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-price">$68.00</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-desc">Precision-pour stainless steel with a matte black finish.</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-action"><button class="rec-cart" type="button"><img src="css/imgs/AddToCart_Btn.svg" alt="cart plus"></button></td>
+                                    </tr>
+                                </table>
+                            </td>
+
+                            <td class="rec-cell">
+                                <table class="rec-inner" role="presentation">
+                                    <tr>
+                                        <td class="rec-img">
+                                            <img src="css/imgs/Ember_CupSet.png" alt="Ember Cup Set" width="281" height="295">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-title">Ember Cup Set (2pcs)</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-price">$32.00</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-desc">Matte ceramic cups designed in-house. For shared sips.</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="rec-action"><button class="rec-cart" type="button"><img src="css/imgs/AddToCart_Btn.svg" alt="cart plus"></button></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div> 
+            </div>
+        </section>
+
+/*SHOP - PRODUCT CONTENT BODY*/
+/* Section wrapper*/
+#product-content {
+  width: 1280px;
+  height: 2112px;
+  background: #F9F6F1;
+  box-sizing: border-box;
+  padding-top: 55px; 
+  padding-bottom: 80px;
+}
+
+/* Product landing */
+.product-landing {
+  width: 1190px;
+  height: 1053px;
+  display: flex;
+  gap: 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+/* left & right columns (each 595px) */
+.product-image,
+.product-details {
+  width: 595px;
+  box-sizing: border-box;
+}
+
+/* Image frame */
+.product-image-frame {
+  width: 585px;
+  height: 652px;
+  border: 1px solid #C3A358;
+  padding: 23px 127px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+.product-image-frame img {
+  display: block;
+  width: 331px;
+  height: 604px;
+  object-fit: cover;
+}
+
+/* PRODUCT DETAILS Group 1 */
+.product-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #2E2E2E;
+  font-family: 'Lato', sans-serif;
+}
+
+/* Product name styling */
+.product-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #2E2E2E;
+  margin: 0 0 8px 0;
+  text-align: left;
+}
+
+/* Price & review row */
+.p-price-review {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 8px;
+}
+.price {
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  color: #2E2E2E;
+}
+.review {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #2E2E2E;
+}
+.stars {
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 13px; /* 13px away from text as requested */
+  width: 110px; /* visual placeholder width */
+}
+
+/* Description */
+.p-description p {
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  color: #2E2E2E;
+  line-height: 1.4;
+}
+
+/* Actions (qty + add to cart) */
+.p-actions .qty-add {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.qty-control,
+.btn-add-to-cart {
+  height: 48px; /* equal height for both controls */
+}
+
+.qty-control {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #C3A358;
+  border-radius: 6px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.qty-btn {
+  width: 38px;
+  height: 48px; /* unified height */
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #2E2E2E;
+}
+
+.qty-input {
+  width: 48px;
+  text-align: center;
+  border: none;
+  font-size: 16px;
+  padding: 8px;
+  color: #2E2E2E;
+  outline: none;
+  background: transparent;
+}
+
+.btn-add-to-cart {
+  background: transparent; /* transparent fill */
+  border: 1px solid #C3A358;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  color: #2E2E2E;
+  border-radius: 6px;
+  height: 48px; /* unified height */
+  transition: all 0.25s ease;
+}
+
+.btn-add-to-cart:hover {
+  background: #C3A358;
+  color: #fff;
+}
+
+/* PRODUCT DETAILS Group 2: Toggle & content */
+.product-group-2 {
+  margin-top: 34px;
+  width: 595px;
+  position: relative;
+}
+/* Menu tabs */
+.product-toggle {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid #C3A358;
+}
+.product-toggle ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 28px;
+  font-family: 'Lato', sans-serif;
+  position: relative;
+}
+.product-toggle .toggle-item {
+  cursor: pointer;
+  color: #2E2E2E;
+  font-size: 16px;
+  padding-bottom: 8px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.product-toggle .toggle-item:hover {
+  color: #C1A289;
+}
+
+/* Animated underline pointer */
+.product-toggle .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 80px; /* matches width of "Nutrition" text roughly */
+  background: #C3A358;
+  transition: all 0.35s ease;
+}
+
+/* Divider with diamond on right end (555px wide active rule) */
+.toggle-divider {
+  width: 555px;
+  height: 1px;
+  background: #C3A358;
+  margin: 12px 0 14px 0;
+  position: relative;
+}
+.toggle-divider::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  top: -5px;
+  width: 10px;
+  height: 10px;
+  background: #C3A358;
+  transform: rotate(45deg);
+}
+
+/* Toggle content */
+.toggle-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 555px;
+  margin-top: 16px;
+}
+.toggle-content img {
+  display: block;
+  width: 339px; 
+}
+
+/* ===== PRODUCT USAGE ===== */
+#product-usage {
+  width: 1280px;
+  height: 350px;
+  background: #ECE6DB;
+  margin-top: 46px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.usage-inner {
+  width: 1122px;
+  height: 138px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-sizing: border-box;
+}
+
+/* Header with line and diamond on right */
+.usage-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.usage-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: #2E2E2E;
+  margin: 0;
+}
+.usage-line {
+  flex: 1;
+  height: 1px;
+  background: #C3A358;
+  position: relative;
+  margin-left: 18px;
+}
+.usage-line::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -7px;
+  width: 14px;
+  height: 14px;
+  background: #C3A358;
+  transform: rotate(45deg);
+}
+
+/* Items row */
+.usage-items {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+}
+.usage-item {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  width: 520px;
+}
+.usage-thumb {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.usage-name {
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  color: #2E2E2E;
+}
+.usage-price {
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  color: #2E2E2E;
+  margin-top: 4px;
+}
+.usage-desc {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  color: #2E2E2E;
+  margin-top: 6px;
+}
+
+/* ===== PRODUCT RECOMMENDATIONS ===== */
+#product-recommendations {
+  width: 1280px;
+  height: 709px;
+  background: #F9F6F1;
+  margin-top: 40px;
+}
+.recommendation-table {
+  width: 1190px;
+  height: 545px;
+  border-collapse: collapse;
+  margin: 0 auto;
+  border: 1px solid #C3A358;
+}
+.recommendation-table .rec-cell {
+  vertical-align: top;
+  padding: 18px;
+  width: 33.33%;
+  border-right: 1px solid #C3A358;
+}
+.recommendation-table .rec-cell:last-child {
+  border-right: none;
+}
+
+.rec-inner {
+  width: 100%;
+  box-sizing: border-box;
+  border-collapse: collapse;
+  text-align: left;
+}
+.rec-img img {
+  display: block;
+  margin: 0 auto 12px auto;
+  object-fit: cover;
+}
+.rec-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: #2E2E2E;
+  margin-bottom: 6px;
+}
+.rec-price {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  color: #2E2E2E;
+  margin-bottom: 8px;
+}
+.rec-desc {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  color: #2E2E2E;
+  margin-bottom: 12px;
+}
+.rec-action .rec-cart {
+  background: #fff;
+  border: 1px solid #C3A358;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* small responsive guard (optional) */
+@media (max-width: 1300px) {
+  #product-content, .product-landing, .recommendation-table {
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+  }
+  .product-image-frame { padding: 23px 80px; }
+}
