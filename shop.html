@@ -127,29 +127,79 @@
                     </div>
 
                     <div class="product-tabs">
-                        <button class="tab active" data-tab="nutrition">Nutrition</button>
-                        <button class="tab" data-tab="info">Additional Information</button>
-                        <button class="tab" data-tab="reviews">Reviews</button>
-                    </div>
+                        <!-- Row 1: Navigation Tabs -->
+                        <div class="tab-nav">
+                            <button class="tab active" data-tab="nutrition">Nutrition</button>
+                            <button class="tab" data-tab="info">Additional Information</button>
+                            <button class="tab" data-tab="reviews">Reviews</button>
+                        </div>
 
-                    <div class="tab-content" id="nutrition">
-                        <img src="css/imgs/NutritionInfo.png" alt="Nutrition Facts" />
-                    </div>
+                        <!-- Row 2: Divider Line with Diamond -->
+                        <div class="tab-divider">
+                            <span class="line"></span>
+                            <span class="diamond"></span>
+                        </div>
 
-                    <div class="tab-content hidden" id="info">
-                        <p>Origin: Sidamo, Ethiopia & Cerrado, Brazil
-                        <br>Notes: Cocoa, dried plum, toasted almond
-                        <hr><br>Brew best with: <br>
-                            <ol>
-                                <li>Pour-over for clarity.</li>
-                                <li>French press for full-body flavour.</li>
-                                <li>Espresso for intensity.</li>
-                            </ol>
-                        </p>
-                    </div>
+                        <!-- Row 3: Tab Content -->
+                        <div class="tab-contents">
+                            <!-- Nutrition Tab -->
+                            <div class="tab-content" id="nutrition">
+                                <table>
+                                    <tr><td><strong>Nutritional Facts</strong></td></tr>
+                                    <tr><td>Calories</td><td>0</td></tr>
+                                    <tr><td>Fat</td><td>0g</td></tr>
+                                    <tr><td>Carbohydrate</td><td>0g</td></tr>
+                                    <tr><td>Protein</td><td>0g</td></tr>
+                                    <tr><td>Sodium</td><td>5mg</td></tr>
+                                </table>
+                            </div>
 
-                    <div class="tab-content hidden" id="reviews">
-                        <p>No reviews yet.</p>
+                            <!-- Additional Information Tab -->
+                            <div class="tab-content hidden" id="info">
+                                <p><strong>Origin:</strong> Sidamo, Ethiopia & Cerrado, Brazil<br>
+                                <strong>Notes:</strong> Cocoa, dried plum, toasted almond</p>
+
+                                <p><strong>Brew best with:</strong></p>
+                                <ul>
+                                    <li>Pour-over for clarity.</li>
+                                    <li>French press for full-body flavour.</li>
+                                    <li>Espresso for intensity.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Reviews Tab -->
+                            <div class="tab-content hidden" id="reviews">
+                                <div class="review">
+                                    <p>★★★★★</p>
+                                    <em>“Perfect start to a slow morning.”</em>
+                                    <blockquote>
+                                        I used to grab coffee on the go, but these beans made me look forward to brewing at home again.
+                                        Smooth, balanced, and not too acidic — just the right kind of warmth before work.<br>
+                                        — Clarissa, 28, Marketing Executive
+                                    </blockquote>
+                                </div>
+
+                                <div class="review">
+                                    <p>★★★★★</p>
+                                    <em>“Like a café in my kitchen.”</em>
+                                    <blockquote>
+                                        Brewed with a pour-over, and it honestly tastes like something from a good café. The cocoa and plum
+                                        notes come through so clearly. It’s become my weekend ritual before meeting friends.<br>
+                                        — Ryan, 31, Product Designer
+                                    </blockquote>
+                                </div>
+
+                                <div class="review">
+                                    <p>★★★★☆</p>
+                                    <em>“Beautiful flavour, but wish it came in a larger bag.”</em>
+                                    <blockquote>
+                                        Love the balanced flavour profile and how it works for both espresso and French press.
+                                        Just hope they release a 500g version soon.<br>
+                                        — Jared, 30, Copywriter
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -159,9 +209,9 @@
         <section class="section menu-items-section">
             <div class="section2-header">
                 <h2>Used in-house in these menu items</h2>
-                <div class="section2-divider">
+                <div class="section2-header-line">
                     <span class="line"></span>
-                    <span class="diamond right"></span>
+                    <span class="diamond"></span>
                 </div>
             </div>
 
@@ -202,35 +252,62 @@
         <!-- Section 3: Recommended Products -->
         <section class="section recommended-section">
             <h2>You might like...</h2>
-            <div class="recommend-grid">
-                <div class="recommend-card">
-                    <div class="recommend-header">
-                        <button class="add-to-cart small"><img src="css/imgs/AddToCart_Btn.svg" alt="Add to Cart"></button>
+            <div class="recommended-products">
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-info">
+                            <h4>Ember Dripper</h4>
+                            <p class="price">$34.80</p>
+                        </div>
+                        <button class="icon-btn">
+                            <img src="css/imgs/AddToCart_Btn.svg" alt="Add to Cart">
+                        </button>
                     </div>
-                    <img src="css/imgs/Ember_CoffeeDripper.png" alt="Ember Coffee Dripper" />
-                    <h3>Ember Dripper</h3>
-                    <p>$34.80</p>
-                    <p>A sleek glass pour-over designed for clarity and calm.</p>
+
+                    <img src="css/imgs/Ember_CoffeeDripper.png" alt="Ember Coffee Dripper" class="product-img">
+
+                    <p class="description">
+                        A sleek glass pour-over designed for clarity and calm. <br>
+                        Because good coffee should slow time, not steal it.
+                    </p>
                 </div>
 
-                <div class="recommend-card">
-                    <div class="recommend-header">
-                        <button class="add-to-cart small"><img src="css/imgs/AddToCart_Btn.svg" alt="Add to Cart"></button>
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-info">
+                            <h4>Verdant Kettle — Gooseneck Edition</h4>
+                            <p class="price">$68.00</p>
+                        </div>
+                        <button class="icon-btn">
+                            <img src="css/imgs/AddToCart_Btn.svg" alt="Add to Cart">
+                        </button>
                     </div>
-                    <img src="css/imgs/Verdant_GooseneckKettle.png" alt="Verdant Gooseneck Kettle" />
-                    <h3>Verdant Kettle — Gooseneck Edition</h3>
-                    <p>$68.00</p>
-                    <p>Precision-pour stainless steel with a matte black finish.</p>
+
+                    <img src="css/imgs/Verdant_GooseneckKettle.png" alt="Verdant Gooseneck Kettle" class="product-img">
+
+                    <p class="description">
+                        Precision-pour stainless steel with a matte black finish. <br>
+                        The control you need, the ritual you deserve.
+                    </p>
                 </div>
 
-                <div class="recommend-card">
-                    <div class="recommend-header">
-                        <button class="add-to-cart small"><img src="css/imgs/AddToCart_Btn.svg" alt="Add to Cart"></button>
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-info">
+                            <h4>Ember Cup Set (2pcs)</h4>
+                            <p class="price">$32.00</p>
+                        </div>
+                        <button class="icon-btn">
+                            <img src="css/imgs/AddToCart_Btn.svg" alt="Add to Cart">
+                        </button>
                     </div>
-                    <img src="css/imgs/Ember_CupSet.png" alt="Ember Cup Set" />
-                    <h3>Ember Cup Set (2pcs)</h3>
-                    <p>$32.00</p>
-                    <p>Matte ceramic cups designed in-house. For shared sips and slow refills.</p>
+
+                    <img src="css/imgs/Ember_CupSet.png" alt="Ember Coffee Dripper" class="product-img">
+
+                    <p class="description">
+                        Matte ceramic cups designed in-house. <br>
+                        For shared sips and slow refills.
+                    </p>
                 </div>
             </div>
         </section>
@@ -303,6 +380,23 @@
             increaseBtn.addEventListener('click', () => {
                 let value = parseInt(quantityInput.value);
                 quantityInput.value = value + 1;
+            });
+        </script>
+
+        <script>
+            const tabs = document.querySelectorAll(".tab");
+            const contents = document.querySelectorAll(".tab-content");
+
+            tabs.forEach(tab => {
+                tab.addEventListener("click", () => {
+                // Remove active state
+                tabs.forEach(t => t.classList.remove("active"));
+                contents.forEach(c => c.classList.add("hidden"));
+
+                // Add active state to clicked tab
+                tab.classList.add("active");
+                document.getElementById(tab.dataset.tab).classList.remove("hidden");
+            });
             });
         </script>
     </body>
