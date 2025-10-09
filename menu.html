@@ -11,13 +11,14 @@
 
 <body>
     <section class="menu-wrapper">
+        <div class="menu-mask"></div>
         <!-- Cafe Variant -->
         <div class="menu-group cafe active">
             <!-- Navbar -->
             <section class="menu-NavBar">
                 <div class="navbar navbar-cafe">
                     <div class="logo-container">
-                        <a href="homepage.html">
+                        <a href="index.html">
                             <img src="css/imgs/VerdantAndEmberLogo_Dark.png" alt="Verdant & Ember Logo" class="logo">
                         </a>
                     </div>
@@ -389,7 +390,7 @@
             <section class="menu-NavBar">
                 <div class="navbar navbar-restaurant">
                     <div class="logo-container">
-                        <a href="homepage.html">
+                        <a href="index.html">
                             <img src="css/imgs/logo.png" alt="Verdant & Ember Logo" class="logo">
                         </a>
                     </div>
@@ -757,7 +758,7 @@
                 </div>
 
                 <!-- Center image -->
-                <a href="homepage.html" class="footer-logo-link">
+                <a href="index.html" class="footer-logo-link">
                     <img src="css/imgs/VerdantAndEmber.png" alt="Footer Image" class="footer-middle-img">
                 </a>
 
@@ -789,44 +790,115 @@
     const banners = Array.from(document.querySelectorAll('.banner-img')); // if present
     const dividers = Array.from(document.querySelectorAll('.nav-divider')); // if present
 
+    // --- Circular reveal mask setup ---
+    const wrapper = document.querySelector('body'); // or a specific wrapper div around your menu
+    let mask = document.createElement('div');
+    mask.classList.add('menu-mask');
+    wrapper.appendChild(mask);
+
+    // Mask CSS
+    Object.assign(mask.style, {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        width: '0',
+        height: '0',
+        borderRadius: '50%',
+        backgroundColor: '#F9F6F1', // circle color
+        transform: 'translate(-50%, -50%)',
+        zIndex: '9999',
+        pointerEvents: 'none',
+        transition: 'width 0.5s ease, height 0.5s ease'
+    });
+
+    // Original activate function (kept intact)
     function activate(name) {
         // show only the chosen group
         groups.forEach(g => g.classList.toggle('active', g.classList.contains(name)));
-        // show only the chosen menu-list (some CSS also relies on .menu-list.active)
+        // show only the chosen menu-list
         lists.forEach(l => l.classList.toggle('active', l.classList.contains(name)));
-        // banners inside groups (if you use .banner-img)
+        // banners inside groups
         banners.forEach(b => b.classList.toggle('active', b.classList.contains(name)));
-        // nav divider inside the active group (restaurant uses light color)
+        // nav divider inside the active group
         dividers.forEach(nd => {
-        const pg = nd.closest('.menu-group');
-        nd.classList.toggle('active', pg && pg.classList.contains(name) && pg.classList.contains('restaurant'));
+            const pg = nd.closest('.menu-group');
+            nd.classList.toggle('active', pg && pg.classList.contains(name) && pg.classList.contains('restaurant'));
         });
-
         // update buttons: set active class + disable the active one
         btns.forEach(b => {
-        const isTarget = b.dataset.menu === name;
-        b.classList.toggle('active', isTarget);
-        b.disabled = isTarget;
+            const isTarget = b.dataset.menu === name;
+            b.classList.toggle('active', isTarget);
+            b.disabled = isTarget;
         });
     }
 
-    // initialize from whatever is currently present in markup (fallback to cafe)
+    // Circular reveal animation wrapper
+    async function circularActivate(name) {
+        return new Promise(resolve => {
+            // Store current scroll
+            const scrollY = window.scrollY;
+
+            // Prevent any scrolling
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollY}px`;
+            document.body.style.left = '0';
+            document.body.style.right = '0';
+            document.body.style.overflow = 'hidden';
+
+            // Set mask color based on menu
+            if (name === 'restaurant') {
+                mask.style.backgroundColor = '#66302E'; // green for restaurant
+            } else {
+                mask.style.backgroundColor = '#ECE6DB'; // light/cream for cafe
+            }
+
+            // Determine the max dimension to fully cover viewport
+            const maxDim = Math.max(window.innerWidth, window.innerHeight) * 2;
+
+            // Expand mask
+            mask.style.width = `${maxDim}px`;
+            mask.style.height = `${maxDim}px`;
+
+            setTimeout(() => {
+                // Swap content while fully expanded
+                activate(name);
+
+                // Shrink mask back
+                mask.style.width = '0';
+                mask.style.height = '0';
+
+                setTimeout(() => {
+                // Restore scrolling
+                    document.body.style.position = '';
+                    document.body.style.top = '';
+                    document.body.style.left = '';
+                    document.body.style.right = '';
+                    document.body.style.overflowY = 'scroll';
+                    window.scrollTo(0, scrollY); // restore scroll position
+                    resolve();
+                }, 500);
+            }, 500); // wait for expand animation
+        });
+    }
+
+    // Initialize menu
     const initial = groups.find(g => g.classList.contains('active')) || document.querySelector('.menu-group.cafe') || groups[0];
     if (initial) {
         const name = initial.classList.contains('restaurant') ? 'restaurant' : 'cafe';
         activate(name);
     }
 
-    // wire click handlers
+    // Wire buttons to circular reveal
     btns.forEach(b => {
-        b.addEventListener('click', (e) => {
-        if (b.disabled) return; // already active
-        const target = b.dataset.menu;
-        if (!target) return;
-        activate(target);
+        b.addEventListener('click', async (e) => {
+            if (b.disabled) return; // already active
+            const target = b.dataset.menu;
+            if (!target) return;
+            await circularActivate(target);
         });
     });
-    });
+});
 </script>
+
 </body>
 </html>
